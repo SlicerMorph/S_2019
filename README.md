@@ -4,4 +4,4 @@ Lectures, labs and all documents associated with 3D Morphometrics workshop at FH
 <img alt="SlicerMorph logo" width="256" height="256" src="https://github.com/SlicerMorph/SlicerMorph.github.io/blob/master/SlicerMorph_Logos/SlicerMorph_Final_Logos-V2.jpg">
 
 #### Funding acknowledgement
-Development of SlicerMorph and the intense workshops are generously funded by National Science Foundation Advances in Bioinformatics collobrative research grants to Murat Maga, Adam Summers, and Doug Boyer.
+Development of SlicerMorph and the intense workshops are generously funded by National Science Foundation Advances in Bioinformatics collobrative research grants to Murat Maga (ABI-1759883), Adam Summers (ABI-1759637) and Doug Boyer (ABI-1759839). 
