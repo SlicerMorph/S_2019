@@ -1,1 +1,3 @@
-# Lab 01 Introduction to Git and Github 
+# Lab 11 Data processing in R: 
+* Plotting
+* Modeling 

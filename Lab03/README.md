@@ -1,1 +1,1 @@
-# Lab 01 Introduction to Git and Github 
+# Lab 03 Slicer#2: Data formats, getting data from MorphoSource, saving 

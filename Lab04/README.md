@@ -1,1 +1,1 @@
-# Lab 01 Introduction to Git and Github 
+# Lab 04 Slicer#3: Measurements (angles, lines, 3D curves, landmarks) and Visualization 

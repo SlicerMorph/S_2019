@@ -1,1 +1,1 @@
-# Lab 01 Introduction to Git and Github 
+# Lab 05 Slicer#4: Segmentation, mesh conversion, 3D printing 

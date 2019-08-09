@@ -1,1 +1,1 @@
-# Lab 01 Introduction to Git and Github 
+# Lab 09 Auto3Dgm: Establishing Landmark-free correspondence 

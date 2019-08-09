@@ -1,1 +1,2 @@
-# Lab 01 Introduction to Git and Github 
+# Lab 08 iPython Notebook for Slicer
+* Generating movies (or some other use case)
