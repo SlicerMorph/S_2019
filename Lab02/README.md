@@ -9,3 +9,4 @@
 * Sample Data module
 * Slicer website for tutorials, FAQ
 * discource forum for unanswered questions (an example of good question) 
+* youtube channels (SlicerMorph and perklab)
