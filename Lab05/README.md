@@ -9,4 +9,6 @@
 
 * Surface Toolbox (for smoothing, decimation, etc, but not as many functions as Meshlab or Blender)
 * Models Module (for displaying 3D models, manipulating color, opacity, stats)
+* Bonus pointer to discussion on Segmentation to Finite Element ANalysis https://discourse.slicer.org/t/use-segmentations-in-cad-or-fem-software/1626
+* also relevant Segment Mesher extension 
 

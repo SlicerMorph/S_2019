@@ -10,3 +10,7 @@
 * Slicer website for tutorials, FAQ
 * discource forum for unanswered questions (an example of good question) 
 * youtube channels (SlicerMorph and perklab)
+
+
+## Slicer Viewer Controller blowup
+<img src="https://www.slicer.org/w/images/archive/f/fc/20160513140321%21SliceViewerController-4.1.png">
