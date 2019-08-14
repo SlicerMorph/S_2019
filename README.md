@@ -1,6 +1,6 @@
 # Summer 2019 3D Morphometrics Workshop at FHL 
 Lectures, labs and all documents associated with 3D Morphometrics workshop at FHL (Summer 2019)
-<img alt="SlicerMorph logo" width="400" height="256" src="https://github.com/SlicerMorph/SlicerMorph.github.io/blob/master/SlicerMorph_Logos/SlicerMorph_Final_Logos-V2.jpg">
+<img alt="SlicerMorph logo" width="358" height="256" src="https://github.com/SlicerMorph/SlicerMorph.github.io/blob/master/SlicerMorph_Logos/SlicerMorph_Final_Logos-V2.jpg">
 
 ## Computer and software instructions for the 3D Morphometrics Workshop
 **Computer specs:** Please bring a laptop with these suggested specs:
