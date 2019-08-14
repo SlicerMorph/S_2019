@@ -41,13 +41,13 @@ Development of SlicerMorph and the intense workshops are generously funded by Na
 
 
 ### Links to Specific Labs
-1. [Lab 1: Tools for reproducible research (git/github)](https://github.com/SlicerMorph/S_2019/tree/master/Lab01) 
-2. [Lab 2: Slicer #1 UI overview, extensions, finding help](https://github.com/SlicerMorph/S_2019/tree/master/Lab02)
-3. [Lab 3: Slicer #2 Data formats, importing data, saving](https://github.com/SlicerMorph/S_2019/tree/master/Lab03)
-4. [Lab 4: Slicer #3 Measurements and Visualization](https://github.com/SlicerMorph/S_2019/tree/master/Lab04)
-5. [Lab 5: Slicer #4 Segmentation and mesh conversion help](https://github.com/SlicerMorph/S_2019/tree/master/Lab05)
-5. [Lab 6: SlicerMorph #1 Statistical Shape ANalysis](https://github.com/SlicerMorph/S_2019/tree/master/Lab06)
-6. [Lab 7: SlicerMorph #1 Statistical Shape ANalysis - work on your own](https://github.com/SlicerMorph/S_2019/tree/master/Lab07)
+1. [Lab 1: Tools for reproducible research (git/github)](https://github.com/SlicerMorph/S_2019/tree/master/Lab01_Reproducible_research) 
+2. [Lab 2: Slicer #1 UI overview, extensions, finding help](https://github.com/SlicerMorph/S_2019/tree/master/Lab02_Slicer#1_Intro)
+3. [Lab 3: Slicer #2 Data formats, importing data, saving](https://github.com/SlicerMorph/S_2019/tree/master/Lab03_Slicer#2_data_formats_input_output)
+4. [Lab 4: Slicer #3 Measurements and Visualization](https://github.com/SlicerMorph/S_2019/tree/master/Lab04_Slicer#3_Measurements_Visualization)
+5. [Lab 5: Slicer #4 Segmentation and mesh conversion help](https://github.com/SlicerMorph/S_2019/tree/master/Lab05_Slicer#4_Segmentation)
+5. [Lab 6: SlicerMorph #1 Statistical Shape ANalysis](https://github.com/SlicerMorph/S_2019/tree/master/Lab06_SlicerMorph#1)
+6. [Lab 7: SlicerMorph #1 Statistical Shape ANalysis - work on your own](https://github.com/SlicerMorph/S_2019/tree/master/Lab07_SlicerMorph#2)
 7. [Lab 8: Python in Slicer - Scripting tedious tasks](https://github.com/SlicerMorph/S_2019/tree/master/Lab08)
 8. [Lab 9: Auto3dGM - Establishing landmark-free shape correspondence](https://github.com/SlicerMorph/S_2019/tree/master/Lab09)
 9. [Lab 10: Data Processing in R #1: import/export, geomorph package](https://github.com/SlicerMorph/S_2019/tree/master/Lab10)
