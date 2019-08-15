@@ -2,10 +2,20 @@
 * git/github (command line)
 * Rstudio (UI driven, after a repository is created)
 * markdown syntax
+* version control
+
 ---
 ## Why use git?
 * [Git is useful to avoid this](http://phdcomics.com/comics/archive.php?comicid=1323)
 * [While there is some truth in it, we want don't want to be in this situation either](https://xkcd.com/1597/)
+
+## Key concepts
+* https://datacarpentry.org/rr-version-control/02-git-in-github/index.html
+* remote vs local repository
+* staging
+* adding vs commit 
+* pull vs push
+
 
 ### Resources for understanding git
 * [Git Book](https://git-scm.com/book/en/v2)
