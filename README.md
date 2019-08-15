@@ -7,12 +7,13 @@ Lectures, labs and all documents associated with 3D Morphometrics workshop at FH
 *	A quad-core CPU from last couple years (i7 or i5 is preferred). 
 *	1920x1080 or higher screen resolution.
 *	8GB or higher RAM (memory)
-*	100-200GB available storage space (for software and data). Please note that solid state drives (SSD) both SATA and non-volatile memory express (NVMe) are preferred over fixed hard drives due their high sequential read/write performance (usually 10X or more faster than fixed hard drives). 
+*	100-200GB available storage space (for software and data). Please note that solid state drives (SSD) both SATA and non-volatile memory express (NVMe) are preferred over spinning hard-drive disks (HDD) due their high sequential read/write performance (usually 10X or more faster than HDDs). 
 *	 A discrete (not an integrated one) GPU with minimum of 2GB of RAM with the latest GPU driver installed.  
 *	A three-buttoned mouse. 
 
 Your laptop should be running windows 10 (windows 7 has issues and is not supported anymore), or Mac OS 10.11 (El Capitan) or later.  A recent version of a common Linux distribution (like Ubuntu or CentOS) is also fine.
-Please note that segmentation is a memory intensive operation. It is suggested, you have 6-10X more memory than your full dataset size (i.e., if you are working on a 1024x1024x1024 dataset, you will need about 10GB RAM to work on in in Slicer). You can always reduce your dataset to match your hardware capacity. 
+Please note that segmentation is a memory intensive operation. It is suggested, you have 6-10X more memory than your full dataset size (i.e., if you are working on a 1024x1024x1024 dataset, you will need about 10GB RAM to work on in in Slicer). You can always reduce your dataset to match your hardware capacity.
+
 **Required software:** You should have these software install these on your laptops before coming to workshop.
 1.	Please download and install the latest stable (4.10.2) and the preview (4.11.X) versions of the Slicer on your computer from https://download.slicer.org. Because of the constant changes and bug fixes being introduced to preview version, we suggest installing the preview closer to the date of the workshop.
 2.	Download and install git from https://git-scm.com/downloads 
