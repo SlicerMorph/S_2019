@@ -14,3 +14,11 @@
 * driver issues: how to configure laptops with two GPUS (discrete and onboard intel ones)
 * remind that volume rendering is not a segmentation. 
 * Crop 3D view vs Crop Volume confusion
+
+## Bonus content: SlicerAnimator (if we have time)
+1. Install Sequences extension from Extension Manager.
+2. git clone https://github.com/pieper/SlicerAnimator
+3. add the directory SlicerAnimator/Animator to the Modules tab of Settings (Edit->Application Settings)
+4. Restart Slicer and search for Animator module 
+
+* [Demo video](https://youtu.be/9GBekYcJR4E)
