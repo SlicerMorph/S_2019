@@ -1,4 +1,4 @@
-# Lab 08 - Python Scripting in Slicert
+# Lab 08 - Python Scripting in Slicer
 * Reading a segmentation and creating a histogram.
 Alternatively:
 * Naming landmarks and aligning volumes using landmarks (Franfort Horizontal for skulls).
