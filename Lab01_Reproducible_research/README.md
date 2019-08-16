@@ -30,6 +30,12 @@ Download and install
 * [Git is useful to avoid this](http://phdcomics.com/comics/archive.php?comicid=1323)
 * [While there is some truth in it, we want don't want to be in this situation either](https://xkcd.com/1597/)
 
+## What git is NOT?
+* A real-time collaboration tool
+* A backup replacement
+* Keeping files in sync real-time (e.g., like dropbox)
+* Not good with binary files (office documents, pdfs, pictures, etc)
+
 ## Resources
 * [Resources to learn Git by Github](http://try.github.io)
 * [Git Book](https://git-scm.com/book/en/v2)
