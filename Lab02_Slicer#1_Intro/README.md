@@ -4,7 +4,7 @@
 * searching modules, module usage history, navigation through modules
 * Layout options, slice controls, planes, 
 * Log file, recovering and reporting a bug through log (help->Report a bug)
-* extension mechanism
+* [Extension Manager](https://www.slicer.org/wiki/Documentation/Nightly/SlicerApplication/ExtensionsManager)
 * manuall installing an extension (https://www.slicer.org/wiki/Documentation/Nightly/SlicerApplication/ExtensionsManager#How_to_manually_download_an_extension_package.3F) 
 * data module functionality (slice view controls, 3D rendering etc, rename etc)
 * Sample Data module
