@@ -9,7 +9,7 @@
 1. Open command prompt (cmd.exe)
 2. Navigate to the folder where TurboVNC installed by typing
 ```
-cd c:\program files\TurboVNC\
+cd "c:\program files\TurboVNC\"
 ```
 3. In the command prompt, enter the command:
 ```
