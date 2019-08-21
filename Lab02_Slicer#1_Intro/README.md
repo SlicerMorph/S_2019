@@ -15,7 +15,9 @@
 
 ## Helping Yourself
 * Sample Data module
-* Slicer website for tutorials, FAQ
+* [Slicer FAQ](https://www.slicer.org/wiki/Documentation/Nightly/FAQ)
+* [Slicer tutorials](https://www.slicer.org/wiki/Documentation/Nightly/Training)
+* [Maga lab Specific tutorials](https://blogs.uw.edu/maga/)
 * discourse forum for unanswered questions (an example of good question) 
 
 * youtube channels (SlicerMorph and perklab)
