@@ -18,8 +18,6 @@ Preview version: changes (~nightly) as developers make [changes](https://github.
 ## General Application Window and UI
 Related [wiki](https://www.slicer.org/wiki/Documentation/4.10/SlicerApplication/MainApplicationGUI).
 
-* Slicer 4 Application GUI overview
-
 <img src="https://www.slicer.org/w/images/6/6f/Slicer4ApplicationGUIMap.jpg">
 
 * Load & Save (with a special DICOM buttom - stay tuned for Slicer Lab #2) buttons are shortcuts for loading and saving data.
@@ -40,16 +38,18 @@ Related [wiki](https://www.slicer.org/wiki/Documentation/4.10/SlicerApplication/
   <img src="images/sample.data2.png">
   
 * Core Modules
-   * You can customize this list: Go to Edit > Application Settings. 
-   <img src="images/edit.app.settings.png">
-   
-   * Then select Modules on the left pane. You will see the list of available modules and the *Core Modules* menu bar. Drag and drop any module you'd like, I like *Volume Rendering* as a core module. You can use the arrows to adjust the position of your new shortcut in the menu bar. 
-   <img src="images/app.settings.modules.png">
-   
 * Layout options: Depending on your job, different Layouts for the visualization are useful. 
    <img src="https://www.slicer.org/w/images/8/82/Slicer4Layouts.jpg">
    
-   * 3D Slicer is all about slices and 3D renderings/models (more about them soon). Conventional layout gives you 3 slice and 1 3D rendering (reconstruction) views.
+* Mouse mode (Landmarking / Fiducial Annotation)
+* Screen Capture
+* Crosshair visibility
+
+* Extension Manager and Phyton Interactor: Beyond the Slicer you downloaded ... Coming up soon.
+
+## Views: Slice and 3D
+   
+   * 3D Slicer is all about slices and 3D renderings/models (more about them soon). Conventional layout gives you 3 slice views and a 3D rendering (reconstruction) view.
    * Slices: red (axial: inferior to superior), yellow (sagittal: left to right) and green (coronal: posterior to anterior) slices. Usually data is acquired in one slice (most commonly axial) and the other slices are *reconstructed*. Slice views give you the capability to move through slices using a slider (or the wheel of your mouse). It tells you which slicer you are seeing in the *physical space* (mm).
    
    <img src="https://www.slicer.org/w/images/f/fc/SliceViewerController-4.1.png">
@@ -62,13 +62,68 @@ Related [wiki](https://www.slicer.org/wiki/Documentation/4.10/SlicerApplication/
    
    * There is a double arrow button on the top left corner of this panel, you can open even more options and expand this panel. You can add a foreground volume (like a label-map or another volume you loaded) and change the transparency. Select another volume as your background (MRBrainT1 or CTBrain) and play with the transparency.
    
-* Preferences, settings, temp/cache director, modules, customizing toolbar
+## Data Module
 
-* [Extension Manager](https://www.slicer.org/wiki/Documentation/Nightly/SlicerApplication/ExtensionsManager)
-* manuall installing an extension (https://www.slicer.org/wiki/Documentation/Nightly/SlicerApplication/ExtensionsManager#How_to_manually_download_an_extension_package.3F) 
-* creating/managing Region of Interest (ROI)
-* [Keyboard shortcuts and mouse keys](https://www.slicer.org/wiki/Documentation/Nightly/SlicerApplication/MouseandKeyboardShortcuts)
-* data module functionality (slice view controls, 3D rendering etc, rename etc)
+*
+
+## 3D Rendering
+
+* ROI
+
+## Extension Manager
+Related [wiki](https://www.slicer.org/wiki/Documentation/4.10/SlicerApplication/ExtensionsManager).
+
+Extensions are packages of modules designed for specific purposes by developers and researchers. They work by adding modules to your Slicer. Good extensions provide examples and tutorials for you to follow in their wiki pages. 
+
+* Click on Extension Manager (a puzzle piece with an E attached to it).
+
+<img src="images/extension.manager.png">
+
+* Under Install Extensions tab, you will see extensions available to specific Slicer version you are using. Manage Extensions tab will show the extensions you already have, and Restore Extensions tab will show the extensions you previously installed in another version but can be restored to the current version. 
+
+<img src="images/install.extensions.png">
+
+  * Let's install SkullStripper extension (under Segmentation category).
+
+  <img src="images/install.extensions.skull.stripper.png">
+
+  * We need to restart the Slicer. Let's go to Sample Data module and load **MRHead** data this time.
+  * Find the SkullStripper module from the drop-down list (Segmentation > SkullStripper) or using the search functionality. 
+  * This module takes an input volume and creates a brain surface mesh and a brain mask. 
+  * Set the Input Volume to be MRHead, select "Create new Model" and "Create new LabelMapVolume" options for Output brain surface and Brain Mask. Set iterations to 100 and Subdivisions to 15. Click Apply. It should take about 2 minutes to finis.
+
+<img src="images/skull.stripper.png">
+
+  * You should see an approximate brain segmentation and a model in 3D. 
+  
+  <img src="images/skull.stripper2.png">
+  
+  * Manually installing extensions?? 
+  
+## Preferences and Settings
+
+Go to Edit > Application Settings. When you make changes in the settings, little asterisks will appear on the menu next to the section where you made the changes. When you clik OK, you need to restart Slicer to apply the changes.
+
+<img src="images/edit.app.settings.png">
+
+* General settings include the default directory for saving, options for confirming restart/exit/scene close etc.
+
+<img src="images/app.settings.general.png">
+
+* Modules settings let you customize the modules list from the drop-down menu and the shortcuts in the Core Modules bar. To customize select Modules on the left pane. You will see the list of available modules and the *Core Modules* menu bar. Drag and drop any module you'd like, I use *Volume Rendering* frequently so it is in my Core Modules. You can use the arrows to adjust the position of your new shortcut in the menu bar. I like Volume Rendering next to the Volumes module.
+   
+<img src="images/app.settings.modules.png">
+   
+* Appearence settings are cosmetics like fonts etc.
+* Views allows you to set the defaults for slice and 3D views. I like using orthographic projection, for example, so my Slicer defaults to that.
+
+<img src="images/app.settings.views.png">
+
+* Extension settings show the server where extension manager downloads the extensions from and where they are installed on your machine.
+* Another important group of setting is the Volume rendering. You can adjust the mode (if you have a dedicated GPU, GPU Ray Casting is much more superior to CPU) and the amount of memory dedicated to rendering. 
+
+<img src="images/app.settings.rendering.png">
+
 
 ## Log File and Reporting a Bug
 Related [wiki](https://www.slicer.org/wiki/Documentation/Nightly/Report_a_problem)
@@ -87,6 +142,7 @@ Related [wiki](https://www.slicer.org/wiki/Documentation/Nightly/Report_a_proble
 
 ## Helping Yourself
 * Sample Data module
+* [Keyboard shortcuts and mouse keys](https://www.slicer.org/wiki/Documentation/Nightly/SlicerApplication/MouseandKeyboardShortcuts)
 * [Slicer FAQ](https://www.slicer.org/wiki/Documentation/Nightly/FAQ)
 * [Slicer tutorials](https://www.slicer.org/wiki/Documentation/Nightly/Training)
 * [Maga lab Specific tutorials](https://blogs.uw.edu/maga/)
