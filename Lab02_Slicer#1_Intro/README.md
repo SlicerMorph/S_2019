@@ -62,6 +62,14 @@ Related [wiki](https://www.slicer.org/wiki/Documentation/4.10/SlicerApplication/
    
    * There is a double arrow button on the top left corner of this panel, you can open even more options and expand this panel. You can add a foreground volume (like a label-map or another volume you loaded) and change the transparency. Select another volume as your background (MRBrainT1 or CTBrain) and play with the transparency.
    
+* Preferences, settings, temp/cache director, modules, customizing toolbar
+
+* [Extension Manager](https://www.slicer.org/wiki/Documentation/Nightly/SlicerApplication/ExtensionsManager)
+* manuall installing an extension (https://www.slicer.org/wiki/Documentation/Nightly/SlicerApplication/ExtensionsManager#How_to_manually_download_an_extension_package.3F) 
+* creating/managing Region of Interest (ROI)
+* [Keyboard shortcuts and mouse keys](https://www.slicer.org/wiki/Documentation/Nightly/SlicerApplication/MouseandKeyboardShortcuts)
+* data module functionality (slice view controls, 3D rendering etc, rename etc)
+
 ## Log File and Reporting a Bug
 Related [wiki](https://www.slicer.org/wiki/Documentation/Nightly/Report_a_problem)
 
@@ -75,15 +83,7 @@ Related [wiki](https://www.slicer.org/wiki/Documentation/Nightly/Report_a_proble
   * **Make a Google search** to see if the problem has been reported before.
   * To report a bug go Help > Report a bug. Copy the related log entries and provide it with the description of your problem. This window also gives you a link to the [Slicer Discorse](https://discourse.slicer.org) or [3D Slicer bugtracker](https://issues.slicer.org/) for reporting bugs.
 
-<img src="images/report.a.bug.png"
-
-* Preferences, settings, temp/cache director, modules, customizing toolbar
-
-* [Extension Manager](https://www.slicer.org/wiki/Documentation/Nightly/SlicerApplication/ExtensionsManager)
-* manuall installing an extension (https://www.slicer.org/wiki/Documentation/Nightly/SlicerApplication/ExtensionsManager#How_to_manually_download_an_extension_package.3F) 
-* creating/managing Region of Interest (ROI)
-* [Keyboard shortcuts and mouse keys](https://www.slicer.org/wiki/Documentation/Nightly/SlicerApplication/MouseandKeyboardShortcuts)
-* data module functionality (slice view controls, 3D rendering etc, rename etc)
+<img src="images/report.a.bug.png">
 
 ## Helping Yourself
 * Sample Data module
