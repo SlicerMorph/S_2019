@@ -19,6 +19,7 @@ Preview version: changes (~nightly) as developers make [changes](https://github.
 Related [wiki](https://www.slicer.org/wiki/Documentation/4.10/SlicerApplication/MainApplicationGUI).
 
 * Slicer 4 Application GUI overview
+
 <img src="https://www.slicer.org/w/images/6/6f/Slicer4ApplicationGUIMap.jpg">
 
 * Load & Save (with a special DICOM buttom - stay tuned for Slicer Lab #2) buttons are shortcuts for loading and saving data.
@@ -31,10 +32,12 @@ Related [wiki](https://www.slicer.org/wiki/Documentation/4.10/SlicerApplication/
    * navigation through module usage history
 
    Either use search functionality (click on the magnifying glass and start typing) or the drowdown list (Informatics > Sample Data) and find the Sample Data module. Load CT-MRBrain. This will download and load a CT volume and 2 MR volumes.
-   <img src="images/sample.data.png">
+ 
+ <img src="images/sample.data.png">
    
    You should see the image in slice views.
-   <img src="images/sample.data2.png">
+  
+  <img src="images/sample.data2.png">
   
 * Core Modules
    * You can customize this list: Go to Edit > Application Settings. 
@@ -54,9 +57,26 @@ Related [wiki](https://www.slicer.org/wiki/Documentation/4.10/SlicerApplication/
    * Little *push-pin* on the top-left corner hides a panel of additional functionality. If you hover over it, it shows the panel; if you click on it, it pins the panel so it stays open. 
    * If you *link* the slices, then changes you make in this panel affects all three slice views. The closed *eye* icon is a symbol for visibility. 
    * If you click on the eye and open the eye, the slice will be visible in 3D view. If you already linked the slice views, all 3 will be visible in 3D. Go ahead and play with it. Change the slice (using the slider or the mouse wheel) and rotate the 3D view to experiment.
-   * There is a double arrow button on the top left corner of this panel, you can open even more options and expand this panel. You can add a foreground volume (like a label-map or another volume you loaded) and change the transparency. 
    
-* Log file, recovering and reporting a bug through log (help->Report a bug)
+   <img src="images/show.slices.png">
+   
+   * There is a double arrow button on the top left corner of this panel, you can open even more options and expand this panel. You can add a foreground volume (like a label-map or another volume you loaded) and change the transparency. Select another volume as your background (MRBrainT1 or CTBrain) and play with the transparency.
+   
+## Log File and Reporting a Bug
+Related [wiki](https://www.slicer.org/wiki/Documentation/Nightly/Report_a_problem)
+
+* Slicer logs certain events, warnings and errors while you are working on your job. The little red sign on the bottom-right corner with an X in the middle opens the log. Each log entry has a date-and-time stamp; a label of Error, Warning or Info; and a label for the source of the log message (VTK, Pyton etc. are different libraries and bindings Slicer uses).  Clicking on a log entry shows a description below. You can also filter the messages by type using the buttons on the top. 
+
+<img src="images/log.png">
+
+* Logs are kepts as text files on your system. A new session starts when you start Slicer and a new log file is created. If something unexpected happens and you think it is a *bug*, log files are useful when you are reporting it. It is also super useful if your problem is due to a configuration error (e.g. Slicer cannot find a directory on your system).
+
+* You think you found a bug:
+  * **Make a Google search** to see if the problem has been reported before.
+  * To report a bug go Help > Report a bug. Copy the related log entries and provide it with the description of your problem. This window also gives you a link to the [Slicer Discorse](https://discourse.slicer.org) or [3D Slicer bugtracker](https://issues.slicer.org/) for reporting bugs.
+
+<img src="images/report.a.bug.png"
+
 * Preferences, settings, temp/cache director, modules, customizing toolbar
 
 * [Extension Manager](https://www.slicer.org/wiki/Documentation/Nightly/SlicerApplication/ExtensionsManager)
