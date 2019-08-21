@@ -1,16 +1,22 @@
 # Lab 02 Slicer #1: UI, overview of functionality, extensions, finding help 
 * Preview vs stable versions. How to get the latest functionality 
-* Preferences, settings, temp/cache director, modules, cusomtizing toolbar
+* [General Application Window and UI](https://www.slicer.org/wiki/Documentation/Nightly/SlicerApplication/MainApplicationGUI)
+
 * searching modules, module usage history, navigation through modules
 * Layout options, slice controls, planes, 
 * Log file, recovering and reporting a bug through log (help->Report a bug)
+* Preferences, settings, temp/cache director, modules, customizing toolbar
+
 * [Extension Manager](https://www.slicer.org/wiki/Documentation/Nightly/SlicerApplication/ExtensionsManager)
 * manuall installing an extension (https://www.slicer.org/wiki/Documentation/Nightly/SlicerApplication/ExtensionsManager#How_to_manually_download_an_extension_package.3F) 
+* creating/managing Region of Interest (ROI)
+* [Keyboard shortcuts and mouse keys](https://www.slicer.org/wiki/Documentation/Nightly/SlicerApplication/MouseandKeyboardShortcuts)
 * data module functionality (slice view controls, 3D rendering etc, rename etc)
+
+## Helping Yourself
 * Sample Data module
 * Slicer website for tutorials, FAQ
-* discource forum for unanswered questions (an example of good question) 
-* creating/managing Region of Interest (ROI)
+* discourse forum for unanswered questions (an example of good question) 
 
 * youtube channels (SlicerMorph and perklab)
 
