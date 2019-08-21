@@ -1,7 +1,9 @@
-# Lab 03 Slicer#2: Data formats, getting data from MorphoSource, saving 
+# Lab 03 Slicer#2: Data formats, getting data from MorphoSource, saving
 * image stacks vs volume files
 * why nrrd/nifti
 * image spacing, orientation
+
+* [List of image formats supported by Slicer](https://www.slicer.org/wiki/Documentation/Nightly/SlicerApplication/SupportedDataFormat)
 * pixel coordinates vs physical coordinates 
 * DICOM import example 
 * DICOM -> Nifti conversion (dcm2niix -both command line and extension-, Slicer DICOM browser)
@@ -12,3 +14,5 @@
 * downsampling/supersampling (ResampleScalarVolume)
 * CropVolume (interpolated vs voxel, resampling at the time of cropping)
 * SimpleFilters->IntensityWindowingImageFIlter to adjust intensity ranges during data type conversion
+
+* [Explanation of Save Dialog box options](https://www.slicer.org/wiki/Documentation/Nightly/SlicerApplication/SavingData)
