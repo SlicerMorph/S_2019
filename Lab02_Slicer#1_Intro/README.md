@@ -1,6 +1,6 @@
 # Lab 02 Slicer #1: UI, overview of functionality, extensions, finding help 
 
-Welcome to Slicer Lab #1! 
+Welcome to Slicer Lab #1! :tada::tada::tada:
 
 Slicer is an open source software platform with a worldwide developwe community. It is being developed right now.
 https://www.slicer.org/
@@ -29,7 +29,7 @@ Related [wiki](https://www.slicer.org/wiki/Documentation/4.10/SlicerApplication/
    * module usage history
    * navigation through module usage history
 
-   Either use search functionality (click on the magnifying glass and start typing) or the drowdown list (Informatics > Sample Data) and find the Sample Data module. Load CT-MRBrain. This will download and load a CT volume and 2 MR volumes.
+  :pencil: Either use search functionality (click on the magnifying glass and start typing) or the drowdown list (Informatics > Sample Data) and find the Sample Data module. Load CT-MRBrain. This will download and load a CT volume and 2 MR volumes.
  
  <img src="images/sample.data.png">
    
@@ -60,11 +60,23 @@ Related [wiki](https://www.slicer.org/wiki/Documentation/4.10/SlicerApplication/
    
    <img src="images/show.slices.png">
    
-   * There is a double arrow button on the top left corner of this panel, you can open even more options and expand this panel. You can add a foreground volume (like a label-map or another volume you loaded) and change the transparency. Select another volume as your background (MRBrainT1 or CTBrain) and play with the transparency.
+   * There is a double arrow button on the top left corner of this panel, you can open even more options and expand this panel. You can add a foreground volume (like a label-map or another volume you loaded) and change the transparency. 
+   
+   :pencil: Select another volume as your background (MRBrainT1 or CTBrain) and play with the transparency.
    
 ## Data Module
 
-*
+* Data module, the first shortcut in the Core Modules tab, shows the data in the scene. Subject Hierarchy view, the first tab, shows the data in a structured way as a tree. The more you use Slicer and the more data you produce, it comes handy to keep this clean.
+
+<img src="images/data.module.png">
+
+:pencil: Let's create a new subject. 
+  * Right click on the empty space in the Data Module, and select New Subject.
+  * Double click on the name of the subject (or right click and select rename) and give it a name, like Subject_1. You can also rename the Volumes if you'd like.
+  * You can drag and drop images in the scene under it if they belong to the same subject. 
+  
+* The eye icon next to the volumes indicate which one is visualized in the slice views. Try changing the volume in the slices by clicking on the (closed) eye icon of another volume. 
+* You can delete data by right clicking and selecting Delete.
 
 ## 3D Rendering
 
@@ -83,7 +95,7 @@ Extensions are packages of modules designed for specific purposes by developers 
 
 <img src="images/install.extensions.png">
 
-  * Let's install SkullStripper extension (under Segmentation category).
+:pencil: Let's install SkullStripper extension (under Segmentation category).
 
   <img src="images/install.extensions.skull.stripper.png">
 
@@ -98,7 +110,7 @@ Extensions are packages of modules designed for specific purposes by developers 
   
   <img src="images/skull.stripper2.png">
   
-  * Manually installing extensions?? 
+* Manually installing extensions?? 
   
 ## Preferences and Settings
 
@@ -110,7 +122,9 @@ Go to Edit > Application Settings. When you make changes in the settings, little
 
 <img src="images/app.settings.general.png">
 
-* Modules settings let you customize the modules list from the drop-down menu and the shortcuts in the Core Modules bar. To customize select Modules on the left pane. You will see the list of available modules and the *Core Modules* menu bar. Drag and drop any module you'd like, I use *Volume Rendering* frequently so it is in my Core Modules. You can use the arrows to adjust the position of your new shortcut in the menu bar. I like Volume Rendering next to the Volumes module.
+* Modules settings let you customize the modules list from the drop-down menu and the shortcuts in the Core Modules bar. To customize select Modules on the left pane. You will see the list of available modules and the *Core Modules* menu bar. Drag and drop any module you'd like.
+
+:pencil: I use *Volume Rendering* frequently so it is in my Core Modules. Let's add it to the shortcuts. You can thank me later in the workshop. :grin: You can use the arrows to adjust the position of your new shortcut in the menu bar. I like Volume Rendering next to the Volumes module.
    
 <img src="images/app.settings.modules.png">
    
