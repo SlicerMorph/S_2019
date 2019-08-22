@@ -9,7 +9,7 @@
 1. Open command prompt (cmd.exe)
 2. Navigate to the folder where TurboVNC installed by typing
 ```
-cd c:\program files\TurboVNC\
+cd "c:\program files\TurboVNC\"
 ```
 3. In the command prompt, enter the command:
 ```
@@ -25,7 +25,7 @@ where USERNAME and SERVERIP are the provided username and IP address in your wor
 ```
 vncserver
 ```
-If this is the first time you are doing this, you will need to set up a vnc password for yourself. You can answer 'no' to the question about view-only password. 
+If this is the first time you are doing this, you will need to set up a vnc password for yourself. You can answer 'no' to the question about view-only password. This will be the password you will enter to the vncviewer in step 7.
 
 Make a note of the output, as you will need the VNC screen number (value after column **:** see the screen capture below) 
 </br>
@@ -46,9 +46,14 @@ where PORT is the value from the output of your vncserver command in step 5.
 
 **You should now be connected to the Linux Desktop in the vncviewer and can close the putty and command prompt windows**
 
+**Steps 1-5 needs to be done only once (unless the remote server needs to be restarted or the vncserver crashes for some reason). You can safely disconnect and reconnect to your remote session with the vncviewer using the same IP address and PORT combination.**
+
 
 8. To start Slicer or Rstudio, open a terminal window and type:
 ```
 vglrun +v Slicer 
 ```
+
+**important note:** Any application you are running and any dataset you loaded will remain in the memory, when you disconnect from the remote session. Remember that you are on a multi-user environment with shared resources, if you are not actively using Slicer, please make sure to close the Slicer window as a courtesy to others prior to disconnecting from vncviewer.**
+
 <img src="images/vnc_running.png" align="left">

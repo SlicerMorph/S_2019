@@ -6,6 +6,7 @@
 * check the status of measure planes extension 
 
 ## Volume Rendering
+* [Volume Rendering panel and functions](https://www.slicer.org/wiki/Documentation/Nightly/Modules/VolumeRendering#Panels_and_their_use)
 * Volume rendering vs surface rendering
 * opacity transfer function
 * color adjustments
