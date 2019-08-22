@@ -67,11 +67,48 @@ In Slicer, you will first create a Segmentation - which can be converted to Labe
     <img src="images/show3d3.png">
 
 * **Threshold** is one of my favorite tools to begin any segmentation. It creates segments based on an intensity range. In most modalities, the intensities of certain anatomical structures are known. It is also interactive, so you can play with the range until you found a working set.
+ 
  :pencil: Click on Threshold and find a good range that works for the tumor in the image. Note how segmentation overlay on slices flashes while you change the range. It doesn't need to be perfect. Make sure "Show 3D" is turned off to speed things up. 
 
 <img src="images/thresholding.png">
 
-* **Islands** is the next stop in most of my segmentation pipelines. Sometimes there are more than one structure in the same intensity range, if they are not "conenected", it is easy to separate them. This is useful for 
+* **Islands** is the next stop in most of my segmentation pipelines. Sometimes there are more than one structure in the same intensity range, if they are not "conenected", it is easy to separate them. An island (connected component) is a group of pixels/voxels with the same label and that are "connected". Let's explore the options:
+  * Keep largest island: removes all islands except the largest (defined as number of pixels/voxels) connected component. 
+  * Remove small islands: removes smaller islands (smaller than the "minimum size") and still ends up with one segment that can be multiple islands.
+  * Split islands to segments: creates a new segment for each island that is larger than the "minimum size". This is useful if you have multiple islands you are interested in and want to decide on island-by-island. This creates new segments.
+  * Keep selected island: let's you click on the image / on the segment. Keeps the island that includes the pixel you clicked, and removes rest of the islands from the segment. This is also nice if you think the structure you are interested is actually one island, not splitted. 
+  * Remove selected island: opposite of keep selected island.
+  * Add selected island: ???
+  
+  :pencil: In my case, I kinda know that tumor is seperated from the skull and currently my segment contains both the skull, some nasal airways and the tumor. I am going to use "Keep selected island" and click on the tumor. Then I can visualize by clicking Show 3D and decide if I want to "Undo" or not. 
+  
+  <img src="images/islands.png">
+  
+  So I am happy with the segmentation, I can clean up the vascular structure attached to the tumor and make it work. Try your own methods and experiment!
+  
+  * **Scissors** is the next stop on our tour. Now I want to clean the extra voxels from my segment, but I don't want to do that using eraser slice-by-slice and I am not good with spherical eraser which can remove stuff I don't see in other slices. So scissors give us more flexibility on what to remove. The idea is to select a region in any size and different forms and remove it. It has different options: 
+   * Operation: You can select the region to remove or keep or even fill. 
+   * Shape: You can select a free-form region, a circular region or a rectangular region.
+   * Slice cut: You can remove/keep/fill regions in an unlimited "depth", in positive direction or negative direction. This needs a bit of explanation. The structures we play with are in 3D space but our screens show us a 2D image. In slice views, the axes are pre-determined: in the red slice ciew the unseen 3rd dimension is supero-inferior axis, in the yellow it is right-left, in the yellow it is antero-posterior. In 3D view, the 3rd unseen dimension (imagine the direction from the screen towards your face and towards behind the screen) is whatever orientation your rendering is. So when you select "Unlimited" in slice cut option, it creates a region in unlimited size in this 3rd dimension. If you are cutting in 3D view, it will remove/keep everything inside the region you draw, in front of it, and behind it. Positive and negative options divide this space into 2 in slice views, positive being the superior, right and anterior directions. Symmetric removes or keeps a region with the size you give (in physical coordinates not slices) around the slice you are operating on. It is easier to see the effect when you try:
+   
+   Some examples below:
+   
+   <img src="images/scissors.unlimited.png">
+   
+   <img src="images/scissors.positive.png">
+   
+   <img src="images/scissors.negative.png">
+   
+   <img src="images/scissors.symmetric.png">
+   
+   
+   :pencil: I am going to use Scissors in 3D view to remove extra vessels around the tumor. I am going to rotate the rendering and use unlimited free-form remove option. Don't forget to switch to "None" Effect or tool before rotating the rendering. 
+   
+   <img src="images/scissors.my.png">
+   
+ * **Margin** This tool lets you grow or shrink your segment with given margin size (in physical space not in slices). Remember your images may not have isotropic dimensions (in most clinical CTs axial slices tend to be thicker, 0.6mm or 1.25mm or 2.5mm, compared with sagittal and coronal slices,  0.35mm) so it can only go as small as the voxel size of your image.
+
+
 
 * Segment Editor 
 * Segment Editor Extra Effects extension (flood fill, mask/split volume, etc)
