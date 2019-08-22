@@ -50,8 +50,28 @@ In Slicer, you will first create a Segmentation - which can be converted to Labe
     
     <img src="images/overwrite4.png"> 
   
-  :Pencil: Explore some of the Effects (tools). 
+:pencil: Explore some of the Effects (tools). 
+  
+* **Paint/Erase** is very useful as starting point of some semi-automated methods. It is literally painting over pixels (or voxels). Important thing is to adjust the diameter and select between sphere and circle brush. 
+   * Try using it without changing anything: simply paint over a slice in any of the red/yellow/green slice views. Then, move between slices (mouse wheel on any of the red/yellow/green views or slider at the top of them). Then, change it to a sphere brush and try again. When it is a sphere brush, you are painting/erasing in 3D. Note the spherical or disk-shaped brush in 3D view when you are painting in slice view. 
+   
+   <img src="images/circle.brush.png">
+   
+   <img src="images/sphere.brush.png">
+   
+   * Click on the Show 3D button at the top. This creates a surface model visualization of your segmentation. It may take a few seconds. Mostly it is the smoothing operation that takes a bit long. If you turn of the smoothing by clicking the little arrow next to the Show3D button, you will notice the rendering will "pixelate". 
+     * Although it is possible to paint/erase in 3D, it is extremely clunky (for technical reasons). 3D rendering needs to be updated as you edit it, and it is computationally expensive to do so. So, I recommend using it sparingly to check your segmentation or for limited operations (like Scissors tool we'll play with in a minute).
+     
+    <img src="images/show3d.png">
+    
+    <img src="images/show3d3.png">
 
+* **Threshold** is one of my favorite tools to begin any segmentation. It creates segments based on an intensity range. In most modalities, the intensities of certain anatomical structures are known. It is also interactive, so you can play with the range until you found a working set.
+ :pencil: Click on Threshold and find a good range that works for the tumor in the image. Note how segmentation overlay on slices flashes while you change the range. It doesn't need to be perfect. Make sure "Show 3D" is turned off to speed things up. 
+
+<img src="images/thresholding.png">
+
+* **Islands** is the next stop in most of my segmentation pipelines. Sometimes there are more than one structure in the same intensity range, if they are not "conenected", it is easy to separate them. This is useful for 
 
 * Segment Editor 
 * Segment Editor Extra Effects extension (flood fill, mask/split volume, etc)
