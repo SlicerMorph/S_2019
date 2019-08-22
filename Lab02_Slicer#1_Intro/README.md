@@ -21,6 +21,7 @@ Related [wiki](https://www.slicer.org/wiki/Documentation/4.10/SlicerApplication/
 <img src="https://www.slicer.org/w/images/6/6f/Slicer4ApplicationGUIMap.jpg">
 
 * Load & Save (with a special DICOM buttom - stay tuned for Slicer Lab #2) buttons are shortcuts for loading and saving data.
+  * Saving MRB
 * It is all about *modules*. When you first run Slicer, "Welcome to Slicer" module is loaded.
 * Module Selection and Navigation 
    * the current module 
@@ -80,6 +81,7 @@ Related [wiki](https://www.slicer.org/wiki/Documentation/4.10/SlicerApplication/
 * You can delete data by right clicking and selecting Delete.
 
 ## 3D Rendering 
+
 This is only a brief introduction to make sure Volume Rendering works for your Slicer installation and to introduce the capabilities. We will go through the nuts and bolts of Volume Rendering in Lab5.
 
 * The 3D in *3D Slicer*: Volume Rendering.
@@ -102,6 +104,8 @@ This is only a brief introduction to make sure Volume Rendering works for your S
 * 3D view has a push-pin similar to slice views. It opens a set of controls. You can rotate the view to anterior/posterior/superior etc by using the shortcuts, change projection etc. Explore!
 
 <img src="https://slicer.readthedocs.io/en/latest/_images/ViewControls3D.png">
+
+* ROI
 
 
 ## Extension Manager
