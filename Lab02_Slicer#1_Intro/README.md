@@ -74,13 +74,34 @@ Related [wiki](https://www.slicer.org/wiki/Documentation/4.10/SlicerApplication/
   * Right click on the empty space in the Data Module, and select New Subject.
   * Double click on the name of the subject (or right click and select rename) and give it a name, like Subject_1. You can also rename the Volumes if you'd like.
   * You can drag and drop images in the scene under it if they belong to the same subject. 
-  
+<img src="images/data.module.2.png">
+
 * The eye icon next to the volumes indicate which one is visualized in the slice views. Try changing the volume in the slices by clicking on the (closed) eye icon of another volume. 
 * You can delete data by right clicking and selecting Delete.
 
 ## 3D Rendering
 
-* ROI
+* The 3D in *3D Slicer*: Volume Rendering.
+
+:pencil: Assuming you still have CT and MR data loaded, find the Volume Rendering module from the drop-down list or via search function. 
+  * Select the CTBrain from the dropdown list as the Volume, and click on the closed eye icon next to it to turn it open. Slicer will try to render the volume in 3D view. It will be a solid cylinder as it is the shape of the data acquired from the scanner - you can see it in the red (axial) slice.
+  
+  <img src="images/3d.rendering.png">
+  
+  * OK, we know this is a CT so we want to render bones. Click on the "Select a Preset" dropdown list and select one of the first two options. If you hover, it will say CT-AAA and CT-AAA2. These are presets that will render the volume by assigning nice colors to known bone densities to create a 3D representation of bones. 
+  
+  <img src="images/3d.rendering2.png">
+  
+  <img src="images/3d.rendering3.png">
+  
+  * Try using your mouse to interact with the rendering in 3D volume. Try right button, left button, wheel, click-and-drag with left,right or wheel. 
+  
+  * 3D rendering is an art. Under Advanced tab, there are manual keypoints you can adjust to assign transparencies and colors that will render the volume differently. Check Presets first to see if any works for your data. 
+
+* 3D view has a push-pin similar to slice views. It opens a set of controls. You can rotate the view to anterior/posterior/superior etc by using the shortcuts, change projection etc. Explore!
+
+<img src="https://slicer.readthedocs.io/en/latest/_images/ViewControls3D.png">
+
 
 ## Extension Manager
 Related [wiki](https://www.slicer.org/wiki/Documentation/4.10/SlicerApplication/ExtensionsManager).
