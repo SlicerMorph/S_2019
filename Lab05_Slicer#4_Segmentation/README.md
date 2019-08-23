@@ -170,7 +170,7 @@ Segmentations module goes hand-in-hand with the Segment Editor module. You can e
 
 First panel lists all segments in your segmentation and lets you change the visibility, opacity and color of the segments.
 
-<img src="images/segmenations.opacity.png">
+<img src="images/segmentations.opacity.png">
 
 The next panel, Display, controls the display properties. By default, the segments are visualized with opac borders and transparent fills on slices. You can change the opacity and visibility of these here for ALL segments at once. The next panel lets you control these settings for the selected segment only.
 
