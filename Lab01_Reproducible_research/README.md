@@ -7,6 +7,10 @@
 * be able to use Markdown syntax
 * be able to pull course materials from the workshop github page
 
+## Why use git?
+* [Git is useful to avoid this](http://phdcomics.com/comics/archive.php?comicid=1323)
+* [While there is some truth in it, we want don't want to be in this situation either](https://xkcd.com/1597/)
+
 ## Three tools 
 * git/github (command line)
 * Rstudio (UI driven, after a repository is created)
@@ -26,9 +30,19 @@ Download and install
 * Create your own project on Github and a first push by Rstudio
 * Markdown: a way to style text
 
-## Why use git?
-* [Git is useful to avoid this](http://phdcomics.com/comics/archive.php?comicid=1323)
-* [While there is some truth in it, we want don't want to be in this situation either](https://xkcd.com/1597/)
+## A first pull from SlicerMorph
+1. Create a new version control project: File -> New Project -> Version Control -> Git
+2. In *Repository URL* type
+```
+https://github.com/SlicerMorph/S_2019.git
+```
+3. Open a new terminal: Tools -> Terminal -> New Terminal
+4. Type in the terminal
+```
+git pull
+```
+
+## Create your own project on Github
 
 ## What git is NOT?
 * A real-time collaboration tool
