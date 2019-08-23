@@ -29,11 +29,18 @@ In Slicer, you will first create a Segmentation - which can be converted to Labe
 
 <img src="images/segment.editor.png">
 
-* Name your segment (if you'd like - it is nice to keep track of things if you are working with a lot of data in one session) and select your master volume, MRBrainTumor1 in this case. 
+* Name your segmentation (if you'd like - it is nice to keep track of things if you are working with a lot of data in one session) and select your master volume, MRBrainTumor1 in this case. 
 
 <img src="images/segment.editor2.png">
 
-* Add a segment by clicking +Add button. It will be named "Segment_1" if it is the first one you created and the numbers will keep increasing as you add more segments. Let's segment the tumor in Segment_1 so rename the segment properly (as Tumor for example). You can rename the segment by double-clicking on its name. As soon as you add the segment, the tools in the Segment Editor are enabled. Click on the first one, "Paint".
+* Add a segment by clicking +Add button. It will be named "Segment_1" if it is the first one you created and the numbers will keep increasing as you add more segments. Let's segment the tumor in Segment_1 so rename the segment properly (as Tumor for example). You can rename the segment by double-clicking on its name. 
+You can also change the color of the segment by double clicking on the color next to its name, it is nice to have contrasting colors for the segments so that your visualization is easy to look at. The colors do not mean anything other than visualization. Side Note: If you save your segmentation as a LabelMap, the order of the segments will matter (they will have the labels 1,2,3..n based on the order) and if you don't save your color map separately for Slicer, they might be colored differently next time you load your LabelMap.
+
+Slicer have quite a few color maps you can pick and choose from.
+
+<img src="images/segment.color.png">
+
+As soon as you add the segment, the tools in the Segment Editor are enabled. Click on the first one, "Paint".
 
 <img src="images/segment.editor3.png">
 
@@ -106,19 +113,92 @@ In Slicer, you will first create a Segmentation - which can be converted to Labe
    
    <img src="images/scissors.my.png">
    
- * **Margin** This tool lets you grow or shrink your segment with given margin size (in physical space not in slices). Remember your images may not have isotropic dimensions (in most clinical CTs axial slices tend to be thicker, 0.6mm or 1.25mm or 2.5mm, compared with sagittal and coronal slices,  0.35mm) so it can only go as small as the voxel size of your image.
+ * **Margin** tool lets you grow or shrink your segment with given margin size (in physical space not in slices). Remember your images may not have isotropic dimensions (in most clinical CTs axial slices tend to be thicker, 0.6mm or 1.25mm or 2.5mm, compared with sagittal and coronal slices,  0.35mm) so it can only go as small as the voxel size of your image.
 
+ * **Logical operations** on segments lets you Copy one segment to a new one, add one segment to another (useful if Islands split your segment into two), subtract one segment from another, take the intersection of two segments, invert a segment, fill (the segment will contain the whole image) or clear (the segment will be empty) a segment. 
+ 
+ <img src="images/binary.operations.png">
+ 
+ As before, it is important to set Masking options correctly to achieve desired results.
+ 
+ <img src="images/binary.operations2.png">
+ 
+ * **Hollow** tool lets you create a *hollow* segment with the thickness specified in the options and using the segment boundary as inside/outside or median border of the new segment.
+ 
+ <img src="images/hollow.inside.png">
+ 
+ * **Smoothing** tool applies binary smoothing to the segment and smooths the borders. There are different options (and a few binary operations actually) here. Click on "Show more" to read about them.
+ 
+ <img src="images/smoothing.png">
+ 
+ <img src="images/smoothin2.png">
+ 
+  * Most commonly used smoothing filters are Gaussian and Median filters (that actually apply filters or convolutions you saw in the Lecture 2: Applied Imaging Concepts). 
+ 
+   * Closing and Opening have interesting effects like removing parts of sticking out of your segment and filling holes. The size of parts to be removed and holes to be filled depends on the kernel size option of your tool. See below some examples:
+   
+   <img src="images/opening.png">
+   
+   <img src="images/closing.png">
+   
+### Segment Editor Extra Effects extension (flood fill, mask/split volume, etc)
 
+## Segment Statistics
 
-* Segment Editor 
-* Segment Editor Extra Effects extension (flood fill, mask/split volume, etc)
-* Logical operations on segments
-* Segmentations module (to export/import segmentation)
-* segment statistics
-* segment registration (extension, just make them aware)
+Now that you segmented your structure of interest, you may want to calculate some statistics. Don't worry, there is a module for that!
+
+:pencil: Find an open Segment Statistics module.
+Make sure your Segmentation and your Volume are selected. You can leave the output as New Table. Open options by clicking the buttons and see what statistics will be calculated. When ready, hit Apply.
+
+<img src="images/label.statistics.png">
+
+Notice that the layout is automatically changed and a new "Table View" is added. This view displays the results of Segment Statistics module in a table format. Since I have only one segment, it calculated stats for only that. 
+
+<img src="images/label.statistics.png">
+
+See below a real life example where we calcualted the orbital volumes for a trauma patient:
+
+<img src="images/orbit.volume.png">
+
+## Segment Registration
+
+## Segmentations module 
+
+Segmentations module goes hand-in-hand with the Segment Editor module. You can even easily switch to it by clicking on "Segmentations" button on top of the Segment Editor module. 
+
+<img src="images/segmentations.png">
+
+First panel lists all segments in your segmentation and lets you change the visibility, opacity and color of the segments.
+
+<img src="images/segmenations.opacity.png">
+
+The next panel, Display, controls the display properties. By default, the segments are visualized with opac borders and transparent fills on slices. You can change the opacity and visibility of these here for ALL segments at once. The next panel lets you control these settings for the selected segment only.
+
+You can turn off the visibility of a segment in a specific view, see below:
+
+<img src="images/segmentations.visibility.png">
+
+The Copy/Move panel allows you to copy or move the segments in your segmentation to a new segmentation. 
+
+<img src="images/segmentations.copy.move.png">
+
+This part is important. Exporting your segmentation. Most analyses require a LabelMap or a Model as we discussed. You can export any segments or all segments as LabelMaps or Models here. If you are exporting a LabelMap, it may be important to select your reference volume since the new LabelMap is actually a volume/image that needs a physical space (Origin, Spacing, Dimensions etc.). If you do not select a reference volume, the segmentation will be exported to smallest possible volume/image and you may not be able to easily use it as a mask with your original image. 
+
+<img src="images/segmentations.export.png">
+
+Another fair warning: if your segments are overlapping, the new LabelMap produced will give priority to the "later" segments in the order, i.e. the segment that's down the list will claim the overlapping voxels. See below:
+
+<img src="images/segmentation.label1.png">
+
+<img src="images/segmentation.label2.png">
 
 * Surface Toolbox (for smoothing, decimation, etc, but not as many functions as Meshlab or Blender)
 * Models Module (for displaying 3D models, manipulating color, opacity, stats)
-* Bonus pointer to discussion on Segmentation to Finite Element ANalysis https://discourse.slicer.org/t/use-segmentations-in-cad-or-fem-software/1626
+
 * also relevant Segment Mesher extension 
 
+
+## Useful Links
+
+* [Segmentation Recipes](https://github.com/lassoan/SlicerSegmentationRecipes) from Andras Lasso, PerkLab
+* Bonus pointer to [discussion on Segmentation to Finite Element Analysis](https://discourse.slicer.org/t/use-segmentations-in-cad-or-fem-software/1626) 
