@@ -192,10 +192,82 @@ Another fair warning: if your segments are overlapping, the new LabelMap produce
 
 <img src="images/segmentation.label2.png">
 
-:pencil2: Let's export our segmentation as a LabelMap. 
+:pencil2: Let's export our segmentation as a LabelMap. Now our LabelMap is a speacial volume in the scene, check it out in Data module. You can save it as an image file (NIFTI or NRRD recommended). 
 
-* Surface Toolbox (for smoothing, decimation, etc, but not as many functions as Meshlab or Blender)
-* Models Module (for displaying 3D models, manipulating color, opacity, stats)
+<img src="images/segmentation.label.in.data.module.png">
+
+Let's go and check volume properties in Volumes module. Our image and LabelMap should have same dimensions and spacing, same physical space, but the actual values of voxels for the LabelMap should be 0 and 1. 
+
+<img src="images/volume.properties.png">
+
+<img src="images/volume.properties.label.png">
+
+
+## Mask A Volume
+
+One of the most useful things you can do with Segmentation and LabelMaps is to mask raw images to remove unneccesary objects or clean up. 
+
+:pencil2: Find and open Mask Scalar Volume module. 
+
+* Select your image as the input (MRBrainTumor_1), your LabelMap as the mask (Segmentation-label) and Create New Volume option as the output. The "label value" indicates which label from your LabelMap will be the foreground (since mine has only 1 label right now, I'm going to use 1). The "replace value" indicates the voxel value that will be assigned to all voxels except those with label value in the LabelMap. In my example, it will be all voxels outside the tumor segment. 
+
+<img src="images/mask.scalar.volume.png">
+
+* Hit Apply. Slicer should show the new volume created in the slice views. It should be an image with the tumor region same as the original one, and the rest should be 0. It is easier to see if you turn off the visibility of the segmentation from Data module and find the slices that contain the tumor using sliders or your mouse wheel.
+
+<img src="images/mask.scalar.volume2.png">
+
+Side note: Most of the time, the "replace value" in Mask Scalar Volume is set to 0 since 0 means background in most modalities. However, 0 intensity may mean other tissue in your modality. For example, in CT images, I use -1000 as replace value since that correspond to air in hounsield units while 0 is in soft tissue. Pick your replace value wisely. 
+
+# Models
+
+A model is another representation you can produce from your segmentation. 
+
+:pencil2: Go back to Segmentations module (I am lazy so I first go to Segment Editor using shortcuts, then I click on Segmentations) and export a Model of your segment. You can leave the output nose as it is and it will create a new model hierarchy. If your segment is relatively small, it should take a short time. 
+
+<img src="images/export.model.png">
+
+This representation is not a volume anymore, it looks like the thing you saw when you hit Show 3D button in Segment Editor but this is not just a visualization. This is a new data structure with 3D points and polygons, a surface mesh. Go into the Data module and see it. You can turn off the visibility here and change the color etc. Slicer assigns the same name and color from the Segmentation. Models are not show in slice views (they could be but they are not designed for it). The color is again just for visualization and when you save the model, it is not written to the file. 
+
+<img src="images/model.data.module.png">
+
+Models module, a shortcut with a green mesh icon in the core modules toolbar, is similar to Segmentations or Volumes module. It lets you explore the properties of this data type and change visualization settings. You can turn the visibility on and off, change the opacity, see the data properties: in this case, how many cells (polygons) and points there are in your Model, its volume and surface area. 
+
+<img src="images/models.png">
+
+Play with the representation setting. Your model is a mesh. It has points and polygons. The default setting is to show the surfaces (polygons) but not the points or edges. You can change it if you'd like but surface is really the best visualization for this data. Seeing points and edges gives you an idea how "precise" your data is. It is ultimately based on the quality of the volume data you produced this mesh from. 
+
+<img src="images/models.wireframe.png">
+
+Another hidden setting here may change your life: the Visible Sides. With this smooth closed surface of the tumor, it is not easy to appreciate because all faces are pointing outwards. From your imaging basics lecture, remember that each cell/polygon has a normal vector and it defines the front face of the mesh. By changing which sides are visible, you can change what you are seeing dramatically. Play with it. And remember this setting when you load a mesh/model and think it looks degenerated. Probably part of it is not visualized becasue of this setting. 
+
+
+There is a Clipping option. When you enable it, and click on Configure, it takes you down to the advance settings where you can select which slice you want to use for clipping. Then by simply changing the location of the slice from slice views, you can clip the Model visualization - not the Model itself. 
+
+<img src="images/models.clipping.png">
+
+While the model is clipped, try changing the visile faces from Front to Back and to All. Rotate mesh to see what is visualized. 
+
+Finally there are more settings to change the lighting and slice visualization. 
+
+## Surface Toolbox
+
+The module for simple processing of models is the *Surface Toolbox*. Similar to Segment Editor but really really limited capabilities. 
+
+:pencil2: Find and open Surface Toolbox module. Select your new Model (mine is named Tumor) as the input and select the option to create a new model as output. 
+
+<img src="images/surface.toolbox.png">
+
+Let's go over what you can do with surface toolbox:
+ * Decimation: Reduces number of cells and points by averaging - similar to resizing an image.
+ * Smoothing
+ * Normals: Here auto-orient tries to orient the front-facing and back-facing cells so that normals are all pointing outside. This is not trivial when you have complex anatomical structures. You can also flip normals so front-facing ones are facing back. Splitting is a kind of smoothing operation where you split the cells with an angle beyond the feature angle you provide. 
+* Mirror
+* Clean: Sometimes surface meshes have points and stripts that do not belong to a polygon that are leftover from other operations. Cleaning, in essence, deals with data stored in the mesh. 
+* Fill Holes
+* Connectivity: Similar to Islands effect in Segment Editor but only with "keep largest" option. 
+
+If your data is suitable for surface model conversion and your analysis needs mesh editing, try more advanced and specialized mesh editors like [MeshLab](http://www.meshlab.net/) or [Blender](https://www.blender.org/)
 
 * also relevant Segment Mesher extension 
 
