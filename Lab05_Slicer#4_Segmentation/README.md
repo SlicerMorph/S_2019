@@ -1,6 +1,6 @@
 # Lab 05 Slicer#4: Segmentation, mesh conversion, 3D printing 
 
-Welcome to Slicer Lab #4: Segmentation :scissors: :weight_lifting_woman:
+Welcome to Slicer Lab #4: Segmentation :scissors: :art: :gem:
 
 ## Segmentation
 
@@ -21,7 +21,7 @@ In Slicer, you will first create a Segmentation - which can be converted to Labe
 
 ## Segment Editor 
 
-:pencil: Load MRBrainTumor1 data from SampleData module. Let's segment that tumor. 
+:pencil2: Load MRBrainTumor1 data from SampleData module. Let's segment that tumor. 
 
 <img src="images/sample.data.png">
 
@@ -57,7 +57,7 @@ As soon as you add the segment, the tools in the Segment Editor are enabled. Cli
     
     <img src="images/overwrite4.png"> 
   
-:pencil: Explore some of the Effects (tools). 
+:pencil2: Explore some of the Effects (tools). 
   
 * **Paint/Erase** is very useful as starting point of some semi-automated methods. It is literally painting over pixels (or voxels). Important thing is to adjust the diameter and select between sphere and circle brush. 
    * Try using it without changing anything: simply paint over a slice in any of the red/yellow/green slice views. Then, move between slices (mouse wheel on any of the red/yellow/green views or slider at the top of them). Then, change it to a sphere brush and try again. When it is a sphere brush, you are painting/erasing in 3D. Note the spherical or disk-shaped brush in 3D view when you are painting in slice view. 
@@ -75,7 +75,7 @@ As soon as you add the segment, the tools in the Segment Editor are enabled. Cli
 
 * **Threshold** is one of my favorite tools to begin any segmentation. It creates segments based on an intensity range. In most modalities, the intensities of certain anatomical structures are known. It is also interactive, so you can play with the range until you found a working set.
  
- :pencil: Click on Threshold and find a good range that works for the tumor in the image. Note how segmentation overlay on slices flashes while you change the range. It doesn't need to be perfect. Make sure "Show 3D" is turned off to speed things up. 
+ :pencil2: Click on Threshold and find a good range that works for the tumor in the image. Note how segmentation overlay on slices flashes while you change the range. It doesn't need to be perfect. Make sure "Show 3D" is turned off to speed things up. 
 
 <img src="images/thresholding.png">
 
@@ -87,7 +87,7 @@ As soon as you add the segment, the tools in the Segment Editor are enabled. Cli
   * Remove selected island: opposite of keep selected island.
   * Add selected island: ???
   
-  :pencil: In my case, I kinda know that tumor is seperated from the skull and currently my segment contains both the skull, some nasal airways and the tumor. I am going to use "Keep selected island" and click on the tumor. Then I can visualize by clicking Show 3D and decide if I want to "Undo" or not. 
+  :pencil2: In my case, I kinda know that tumor is seperated from the skull and currently my segment contains both the skull, some nasal airways and the tumor. I am going to use "Keep selected island" and click on the tumor. Then I can visualize by clicking Show 3D and decide if I want to "Undo" or not. 
   
   <img src="images/islands.png">
   
@@ -109,7 +109,7 @@ As soon as you add the segment, the tools in the Segment Editor are enabled. Cli
    <img src="images/scissors.symmetric.png">
    
    
-   :pencil: I am going to use Scissors in 3D view to remove extra vessels around the tumor. I am going to rotate the rendering and use unlimited free-form remove option. Don't forget to switch to "None" Effect or tool before rotating the rendering. 
+   :pencil2: I am going to use Scissors in 3D view to remove extra vessels around the tumor. I am going to rotate the rendering and use unlimited free-form remove option. Don't forget to switch to "None" Effect or tool before rotating the rendering. 
    
    <img src="images/scissors.my.png">
    
@@ -147,7 +147,7 @@ As soon as you add the segment, the tools in the Segment Editor are enabled. Cli
 
 Now that you segmented your structure of interest, you may want to calculate some statistics. Don't worry, there is a module for that!
 
-:pencil: Find an open Segment Statistics module.
+:pencil2: Find an open Segment Statistics module.
 Make sure your Segmentation and your Volume are selected. You can leave the output as New Table. Open options by clicking the buttons and see what statistics will be calculated. When ready, hit Apply.
 
 <img src="images/label.statistics.png">
@@ -191,6 +191,8 @@ Another fair warning: if your segments are overlapping, the new LabelMap produce
 <img src="images/segmentation.label1.png">
 
 <img src="images/segmentation.label2.png">
+
+:pencil2: Let's export our segmentation as a LabelMap. 
 
 * Surface Toolbox (for smoothing, decimation, etc, but not as many functions as Meshlab or Blender)
 * Models Module (for displaying 3D models, manipulating color, opacity, stats)
