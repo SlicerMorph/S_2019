@@ -117,11 +117,11 @@ As soon as you add the segment, the tools in the Segment Editor are enabled. Cli
 
  * **Logical operations** on segments lets you Copy one segment to a new one, add one segment to another (useful if Islands split your segment into two), subtract one segment from another, take the intersection of two segments, invert a segment, fill (the segment will contain the whole image) or clear (the segment will be empty) a segment. 
  
- <img src="images/binary.operations.png">
+ <img src="images/logical.operations.png">
  
  As before, it is important to set Masking options correctly to achieve desired results.
  
- <img src="images/binary.operations2.png">
+ <img src="images/logical.operations2.png">
  
  * **Hollow** tool lets you create a *hollow* segment with the thickness specified in the options and using the segment boundary as inside/outside or median border of the new segment.
  
