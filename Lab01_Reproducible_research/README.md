@@ -31,18 +31,69 @@ Download and install
 * Markdown: a way to style text
 
 ## A first pull from SlicerMorph
-1. Create a new version control project: File -> New Project -> Version Control -> Git
-2. In *Repository URL* type
+0. Open Rstudio
+
+1. Create a new version control project: File -> New Project -> Version Control
+
+<img src="images/newproject">
+
+2. Clone Git repository.  In *Repository URL* type
 ```
 https://github.com/SlicerMorph/S_2019.git
 ```
+<img src="images/git">
+
 3. Open a new terminal: Tools -> Terminal -> New Terminal
+
+<img src="images/terminal">
+
 4. Type in the terminal
 ```
 git pull
 ```
 
-## Create your own project on Github
+## Create your own project on Github and make it talk to Rstudio
+1. Log in to your Github account and create a new repository
+
+2. Fill in the information about your new repository. I usually select the the option *Initialize this repository with a README*. Once you are finished, click *Create repository*
+
+3. Copy the URL of your new repository
+
+4. Creat a new version control project in Rstudio as before
+
+5. Clone your new Git repository
+
+6. Open a new terminal: Tools -> Terminal -> New Terminal
+
+7. Type in the terminal 
+```
+git pull
+```
+
+## Edit *Readme* and push it online
+1. Open the Readme file. You can do it with any text editor you like or in Rstudio. 
+
+2. Type a descriptive paragraph about your project. Or just an emoji, like :pig:. 
+
+3. Save your Readme file and close it
+
+4. Go to the terminal in Rstudio and type in the terminal
+```
+git add *
+```
+
+5. Commit your change to git
+```
+git commit -m "<edit_readme>"
+```
+*-m* allows you to edit a customized commit message to describe what you have added/changed in the repository.
+
+6. Push your change to git
+```
+git push
+```
+7. Go to your github page and see you have made a change there too
+
 
 ## What git is NOT?
 * A real-time collaboration tool
