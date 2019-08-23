@@ -35,17 +35,17 @@ Download and install
 
 1. Create a new version control project: File -> New Project -> Version Control
 
-<img src="images/newproject">
+<img src="images/newproject.png">
 
 2. Clone Git repository.  In *Repository URL* type
 ```
 https://github.com/SlicerMorph/S_2019.git
 ```
-<img src="images/git">
+<img src="images/git.png">
 
 3. Open a new terminal: Tools -> Terminal -> New Terminal
 
-<img src="images/terminal">
+<img src="images/terminal.png">
 
 4. Type in the terminal
 ```
@@ -53,11 +53,17 @@ git pull
 ```
 
 ## Create your own project on Github and make it talk to Rstudio
-1. Log in to your Github account and create a new repository
+1. Log in to your Github account and create a new repository. There is a small "+" sign right next to your profile picture
+
+<img src="images/plus.png">
 
 2. Fill in the information about your new repository. I usually select the the option *Initialize this repository with a README*. Once you are finished, click *Create repository*
 
+<img src="images/newrepo.png">
+
 3. Copy the URL of your new repository
+
+<img src="images/repopage.png">
 
 4. Creat a new version control project in Rstudio as before
 
