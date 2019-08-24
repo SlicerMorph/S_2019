@@ -141,7 +141,14 @@ As soon as you add the segment, the tools in the Segment Editor are enabled. Cli
    
    <img src="images/closing.png">
    
-### Segment Editor Extra Effects extension (flood fill, mask/split volume, etc)
+### Segment Editor Extra Effects extension 
+
+:pencil2: Go into Extension Manager (the blue puzzle piece with an E icon towards the end of top bar) and install SegmentEditorExtraEffects extions. You will need to restart Slicer but once you do, you will see a few new effects in your Segment Editor. 
+
+<img src="images/segment.extension.png">
+
+
+(flood fill, mask/split volume, etc)
 
 ## Segment Statistics
 
@@ -219,6 +226,8 @@ One of the most useful things you can do with Segmentation and LabelMaps is to m
 
 Side note: Most of the time, the "replace value" in Mask Scalar Volume is set to 0 since 0 means background in most modalities. However, 0 intensity may mean other tissue in your modality. For example, in CT images, I use -1000 as replace value since that correspond to air in hounsield units while 0 is in soft tissue. Pick your replace value wisely. 
 
+An important use case of masking is when you have more than one sample in your image and you want to create separate images via segmentation. See this [example](Grow_from_seeds_to_split_volumes.pdf)
+
 # Models
 
 A model is another representation you can produce from your segmentation. 
@@ -258,7 +267,7 @@ The module for simple processing of models is the *Surface Toolbox*. Similar to 
 
 <img src="images/surface.toolbox.png">
 
-Let's go over what you can do with surface toolbox:
+Surface toolbox applies all operations you enabled in the module panel to your input mesh. Let's go over what you can do with surface toolbox:
  * Decimation: Reduces number of cells and points by averaging - similar to resizing an image.
  * Smoothing
  * Normals: Here auto-orient tries to orient the front-facing and back-facing cells so that normals are all pointing outside. This is not trivial when you have complex anatomical structures. You can also flip normals so front-facing ones are facing back. Splitting is a kind of smoothing operation where you split the cells with an angle beyond the feature angle you provide. 
@@ -266,6 +275,7 @@ Let's go over what you can do with surface toolbox:
 * Clean: Sometimes surface meshes have points and stripts that do not belong to a polygon that are leftover from other operations. Cleaning, in essence, deals with data stored in the mesh. 
 * Fill Holes
 * Connectivity: Similar to Islands effect in Segment Editor but only with "keep largest" option. 
+
 
 If your data is suitable for surface model conversion and your analysis needs mesh editing, try more advanced and specialized mesh editors like [MeshLab](http://www.meshlab.net/) or [Blender](https://www.blender.org/)
 
