@@ -80,6 +80,8 @@ Related [wiki](https://www.slicer.org/wiki/Documentation/4.10/SlicerApplication/
 * The eye icon next to the volumes indicate which one is visualized in the slice views. Try changing the volume in the slices by clicking on the (closed) eye icon of another volume. 
 * You can delete data by right clicking and selecting Delete.
 
+## Volumes Module
+
 ## 3D Rendering 
 
 This is only a brief introduction to make sure Volume Rendering works for your Slicer installation and to introduce the capabilities. We will go through the nuts and bolts of Volume Rendering in Lab5.
