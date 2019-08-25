@@ -26,16 +26,20 @@ Please note that segmentation is a memory intensive operation. It is suggested, 
 2.	Convert3d (command line tools for image conversion) https://sourceforge.net/projects/c3d/
 3.	Dcm2niix (DICOM to nifti conversion) https://www.nitrc.org/plugins/mwiki/index.php/dcm2nii:MainPage
 4.	Fiji https://fiji.sc/
+5.  [If you would like to use our remote server for Slicer, please review instructions](./remote.md)
 
 **Accounts:** Please create accounts on these websites prior to workshop
 *	MorphoSource: https://morphosource.org
 *	GitHub https://github.com
 *	Slicer Forum, https://discourse.slicer.org (alternatively you can use your github or google accounts to signup)
 *	Please sign up for the SlicerMorph announcement to keep up-to-date with SlicerMorph project and extension updates http://mailman11.u.washington.edu/mailman/listinfo/slicermorph-announcements
-Important Websites:
+**Important Websites:**
+
 *	SlicerMorph project website: https://SlicerMorph.github.io
 *	Summer Workshop website: https://SlicerMorph.github.io/2019_Summer_Workshop
 *	Summer Workshop lectures and labs https://github.com/SlicerMorph/S_2019
+* Link to the file dropbox to upload your lightning talks (or any other data) https://faculty.washington.edu/maga/data_dropbox/
+
 
 #### Funding acknowledgement
 Development of SlicerMorph and the intense workshops are generously funded by National Science Foundation Advances in Bioinformatics collobrative research grants to Murat Maga (ABI-1759883), Adam Summers (ABI-1759637) and Doug Boyer (ABI-1759839). 
