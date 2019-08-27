@@ -100,6 +100,8 @@ git push
 ```
 7. Go to your github page and see you have made a change there too
 
+## Use the Rstudio UI
+
 
 ## What git is NOT?
 * A real-time collaboration tool
