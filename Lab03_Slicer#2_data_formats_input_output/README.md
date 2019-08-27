@@ -13,7 +13,12 @@
   * [DCM2NIIX](https://github.com/rordenlab/dcm2niix/releases) is a commandline tool for convert DICOMs
   * [DicomBrowser](https://www.slicer.org/wiki/Documentation/Nightly/Modules/DICOM)
 * Import non-DICOM image sequences
-  * Examples from local data (load 
+  * Examples from local data
+    * Drag and drop one of the bmp files into the Slicer scene from the OPT sample data
+    * Enable options
+    * Choose `Volume` from Description
+    * Uncheck `Single File`
+    * Hit OK
 * sample data from MorphoSource (Try on your own!)
 
 ## Volume types:
