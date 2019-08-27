@@ -19,6 +19,10 @@
     * Choose `Volume` from Description
     * Uncheck `Single File`
     * Hit OK
+    * You should have the sequence loaded into your Scene
+    * Go to VOlumes module and correct the image spacing should be 0.0118mm
+    * Go to VectorToScalar module and convert the vector image to a scalar volume using the luminance method
+    * You are ready to save your data.
 * sample data from MorphoSource (Try on your own!)
 
 ## Volume types:
