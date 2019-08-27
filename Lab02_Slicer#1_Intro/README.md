@@ -138,7 +138,35 @@ Extensions are packages of modules designed for specific purposes by developers 
   
   <img src="images/skull.stripper2.png">
   
-* Manually installing extensions?? 
+### Manually installing extensions
+
+Sometimes there is an experimental module that's being developed that you want to use and test. Or you are developing a module but you don't want to put it in the extension manager just yet. There is a way to add extensions manually from a file. 
+
+:pencil2: Let's add the *experimental* version of SlicerMorph. Sara had added some modules just for you to try! Go ahead and download it from [her github page](https://github.com/smrolfe/SlicerMorph). Save and unzip the file at a location you will remember. 
+
+<img src="images/manual.extensions.png">
+
+* The folder should have a file with the ".s4ext" extension that tells the Slicer that there is an extension living here. All these folders are different modules we will add.
+
+* Now go to the Extension Manager and click on the wrench icon on the upper right corner. It should have one option saying "Install Extension from File", select that one.
+
+<img src="images/manual.extensions2.png">
+
+* Find the zip file and select it. Slicer should *install* the extension. It will show up under Manage Extensions tab.
+
+<img src="images/manual.extensions3.png">
+
+<img src="images/manual.extenstions4.png">
+
+* Unfortunately we are not done. You have to go to the Edit > Application Settings > Modules and add all the directories under that folder you just downloaded as modules. 
+
+<img src="images/manual.extensions5.png">
+
+* Finally, restart Slicer and check the module list, you should see the new folder "Slicer Morph" and all the modules you've just added!
+
+<img src="images/manual.extensions6.png">
+
+
   
 ## Preferences and Settings
 
