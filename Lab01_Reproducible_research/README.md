@@ -77,11 +77,22 @@ git pull
 ```
 
 ## Edit *Readme* and push it online
-1. Open the Readme file. You can do it with any text editor you like or in Rstudio. 
+1. Open the Readme file. You can do it with any text editor you like or directly edit in Rstudio. 
 
 2. Type a descriptive paragraph about your project. Or just an emoji, like :pig:. 
 
 3. Save your Readme file and close it
+
+4. Switch to the git Tab of Rstudio on the right handside
+
+5. See that the status of your Readme.MD is now shown as `modified`, click on the little checkbox to indicate git that you want to stage these changes. 
+
+6. Click the commit button and enter a description your changes (for you to remember when looking at the commit history)
+
+7. Now you are ready to `push` this to the remote repository on the github (you will have to enter your username and password)
+
+
+(You can also accomplish the same steps using the terminal window, or the git command line syntax)
 
 4. Go to the terminal in Rstudio and type in the terminal
 ```
