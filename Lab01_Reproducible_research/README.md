@@ -100,8 +100,22 @@ git push
 ```
 7. Go to your github page and see you have made a change there too
 
-## Use the Rstudio UI
+## Commit and Push the Rstudio UI
+1. Rstudio offers a nice UI for you to work with Git.
 
+<img src="images/Rstudio1.png">
+
+2. To commit the changes you have made, select the documents and click the **commit** button. 
+
+<img src="images/Rstudio2.png">
+
+3. Another window will pop-up and enter your commit messages.
+
+<img src="images/Rstudio3.png">
+
+4. Close the window and click the **push** button in the Rstudio Git UI. 
+
+<img src="images/Rstudio4.png">
 
 ## What git is NOT?
 * A real-time collaboration tool
