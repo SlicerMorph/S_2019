@@ -6,13 +6,31 @@
 
 * Using the preview version is strongly recommended due to the additional markups types and improvements to the fiducial representation  allowing better performance with large numbers of markups and easier user interaction
 * Updates to Markups module are ongoing so check back for updates
-**Fiducials**
 
-**Angles**
+**ROI:**
+Place two points sequentially that specify corners of a rectangular cube defining the region of interest. The size and shape of the rectangle can be adjusted after placement.
 
-**Lines**
+**Fiducials:**
+Place a single landmark point.
 
-**Open and closed curves**
+**Lines:**
+Sequentially place two points, creating a line between them.
+
+**Angles:**
+Place three points sequentially. This forms two vectors where the second point placed is the vertex. The angle beween the two vectors is displayed.
+
+**Open and closed curves:**
+Sequentially place points. A curve will be fit to the points and updated as additional points are added. If the closed curve is selected, the first and last points placed will be connected.
+
+<img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab04_Slicer%233_Measurements_Visualization/images/MarkupTypes.png">
+
+**Markup Placement**
+  * Slicer has two mouse modes: Transform, and Place. 
+  * Transform mode is the default interaction mode. This mode allows interaction with loaded data (pan, zoom, rotate)
+  * The icons in the mouse mode toolbar at the top of the main GUI allow to switch between these modes
+  * Place mode allows to place one object then switches modes back to Transform mode. Fiducial is the default object.
+  * Place mode can be made persistent by clicking the checkbox in the mouse mode toolbar.
+<img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab04_Slicer%233_Measurements_Visualization/images/FiducialPersistence.png">
 
 * Linear transformations (explain what hardening does to IJK2RAS matrix, and why some other programs won't see it e.g., Fiji) https://discourse.slicer.org/t/image-with-hardened-transform-returns-to-original-when-opened-outside-slicer/431
 
