@@ -16,9 +16,8 @@ Two well-documented, and commonly supported image volume formats are:
     * Choose `Volume` from Description
     * Uncheck `Single File`
     * Hit `OK`
-<<<<<<< HEAD
-    
-    <img src="images/load_dialog_box.PNG">
+
+<img src="images/load_dialog_box.PNG">
     
     * You should have the sequence loaded into your Scene
     
@@ -32,12 +31,10 @@ Two well-documented, and commonly supported image volume formats are:
     <img src="images/vector_to_scalar.PNG">
     
     ### The previous step will generate a new scalar volume (review your `Data` module contents), which is the file you would like to preserve for your downstream work. 
-=======
     * You should have the sequence loaded into your Scene
     * Go to `Volumes` module and correct the image spacing should be 0.0118mm (we know this from the scanner log file). 
     * Go to `VectorToScalar` module and convert the vector image to a scalar volume using the luminance method
     * The previous step will generate a new scalar volume (review your `Data` module contents), which is the file you would like to preserve for your downstream work. 
->>>>>>> 2bf6373afb5afea31908a0c191b023a8b7b8f3eb
     * You are ready to save your data.
     
     <img src="images/save_as.PNG">
@@ -51,8 +48,7 @@ Two well-documented, and commonly supported image volume formats are:
   * Note that from DICOM, `single file` option already unchecked and Description is set to `Volume` by default (if not, fix them)
   * Hit `OK`
   * Go to `Volumes` module and check the Volume information (image dimensions, spacing volume type and volume type)
-<<<<<<< HEAD
-   * You are ready to save your data.
+  * You are ready to save your data.
 
 <img src="images/save_as2.PNG">
   
@@ -84,14 +80,13 @@ Two well-documented, and commonly supported image volume formats are:
 
 <img src="images/CropVolume.PNG">
 
-=======
   * If you have large number DICOM sequences to import, you may consider using:
   * [DicomBrowser Module](https://www.slicer.org/wiki/Documentation/Nightly/Modules/DICOM) or an external command-line tool like 
   * [DCM2NIIX](https://github.com/rordenlab/dcm2niix/releases) is a commandline tool for convert DICOMs or
  
->>>>>>> 2bf6373afb5afea31908a0c191b023a8b7b8f3eb
 ## Work on your own:
 1. Repeat the CropVolume exercise with modifying the ROI (i.e., only crop a portion of the volume)
+2. Try importing the Rattus_norvegicus dataset using the instruction above. 
 2. **Obtain sample data from MorphoSource.** 
   * Go to https://www.morphosource.org/Detail/MediaDetail/Show/media_id/2095
   * Add the calcaneus **M2095-1895** to your cart (you should have an account on MorphoSource)
