@@ -1,7 +1,7 @@
 # Lab 04 Slicer#3: Measurements (angles, lines, 3D curves, landmarks) and Visualization 
 ## Overview of markups
 * Stable version of Slicer only supports fiducial markups 
-* Preview version adds: lines, angles, open and closed curves
+* Preview version adds: lines, angles, open and closed curves (planes will be added to the list in the upcoming months)
 <img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab04_Slicer%233_Measurements_Visualization/images/MarkupWidgets.png">
 
 * Using the preview version is strongly recommended due to the additional markups types and improvements to the fiducial representation  allowing better performance with large numbers of markups and easier user interaction
