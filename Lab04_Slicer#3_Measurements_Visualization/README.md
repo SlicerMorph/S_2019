@@ -100,7 +100,7 @@ The Volume Rendering module provides interactive visualization of 3D image data.
 Mesh data in Slicer is displayed using the Models Module. It can not be rendered using the Volume Render Module.
 1. Load the Gorilla Skull Reference Model under the SlicerMorph tab of the Sample Data module (you will need SLicerMorph installed to see this option in the menu).
 
-<img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab04_Slicer%233_Measurements_Visualization/images/sampleDataGorilla.png
+<img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab04_Slicer%233_Measurements_Visualization/images/sampleDataGorilla.png">
 
 2.Center the dataset in the 3D viewing window using the button at the top left of the window. Optionally, change to the 3D only layout.
 
