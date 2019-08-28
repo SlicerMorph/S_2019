@@ -80,8 +80,11 @@ The Volume Rendering module provides interactive visualization of 3D image data.
 * 3D Slicer uses volume ray casting to computes 2D images from 3D volumetric data sets. Unlike surface reconstruction, there is no estimation of object surfaces or segmentation.
 * The values displayed are calculated using a transfer function that incorporates voxel intensities, material properties, and illumination.
 * The opacity and color of the image can be adjusted by modifying their transfer functions in the Volume Rendering module.
+
  <img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab04_Slicer%233_Measurements_Visualization/images/volumeRenderTF.png">
-* GPU vs CPU raycasting performance differences
+ 
+* Slicer supports both CPU and GPU volume rendering. CPU based will always work, whether you are on a computer without a dedicated graphics card, or on a remote connection (which may not support hardware accelerated graphics), but it is slow. GPU requires you have a dedicated graphics card with 1GB or more videoRAM, but it is much faster. 
+* If you have a dedicated graphics card, you may want to set the default visualization method to GPU rendering using the menu option in: Edit->Preferences 
 * Always set the rendering quality to normal 
 * physical limits to volume rendering (discussion on Discourse)
 * driver issues: how to configure laptops with two GPUS (discrete and onboard intel ones)
