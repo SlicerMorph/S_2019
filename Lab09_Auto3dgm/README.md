@@ -17,12 +17,28 @@ Download and install [slicer](https://download.slicer.org/)
         /Applications/Slicer.app/Contents/bin/SlicerPython -m pip install scipy
         /Applications/Slicer.app/Contents/bin/SlicerPython -m pip install -f https://download.mosek.com/stable/wheel/index.html Mosek
         
-- Windows:
-- Linux: 
+- Linux:
+
+        <Slicer_install_dir>/bin/SlicerPython -m pip install scipy
+        <Slicer_install_dir>/bin/SlicerPython -m pip install -f https://download.mosek.com/stable/wheel/index.html Mosek
+        
+- Windows: 
+
+        <drive, e.g. c:>\Users\<user>\AppData\Local\NA-MIC\<Slicer version name>\bin\SlicerPython.exe -m pip install scipy
+        <drive, e.g. c:>\Users\<user>\AppData\Local\NA-MIC\<Slicer version name>\bin\SlicerPython.exe -m pip install -f https://download.mosek.com/stable/wheel/index.html Mosek
+        
+The slicer_install_dir can be found by the following steps:
+
+a) Open slicer
+b) type in the Python Interactor
+
+        import os
+        cwd = os.getcwd()
+        print(cwd)
 
 ### Download and set up the extension
 
-2) Inside the the terminal, type the following to dowload the extension:
+2) Inside the the terminal, type the following to download the extension:
 
         git clone --recursive https://github.com/ToothAndClaw/auto3dgmSlicerExtension
 
