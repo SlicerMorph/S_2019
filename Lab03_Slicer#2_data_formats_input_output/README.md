@@ -39,7 +39,7 @@ Two well-documented, and commonly supported image volume formats are:
     
    <img src="images/save_as.PNG">
 
-[You can find detailed explanation of `Save` dialog box](https://www.slicer.org/wiki/Documentation/Nightly/SlicerApplication/SavingData)
+[You can find detailed explanation of `Save` dialog box here](https://www.slicer.org/wiki/Documentation/Nightly/SlicerApplication/SavingData)
 
 
     
@@ -53,8 +53,9 @@ Two well-documented, and commonly supported image volume formats are:
 <img src="images/save_as2.PNG">
   
   * If you have large number DICOM sequences to import, you may consider using:
-  * [DicomBrowser Module](https://www.slicer.org/wiki/Documentation/Nightly/Modules/DICOM) or an external command-line tool like 
-  * [DCM2NIIX](https://github.com/rordenlab/dcm2niix/releases) is a commandline tool for convert DICOMs or
+  * [DicomBrowser Module](https://www.slicer.org/wiki/Documentation/Nightly/Modules/DICOM) or  
+  * [DCM2NIIX](https://github.com/rordenlab/dcm2niix/releases) is a commandline tool for convert DICOMs 
+  * [This is paper that reviews steps and challenges involved in converting DICOM to reearch format](https://www.ncbi.nlm.nih.gov/pubmed/?term=dicom+to+nifti+rorden)
 
 ## Downsamping Volumes via ResampleScalarVolume
 
@@ -79,15 +80,13 @@ Two well-documented, and commonly supported image volume formats are:
 * Hit `Apply`
 
 <img src="images/CropVolume.PNG">
-
-  * If you have large number DICOM sequences to import, you may consider using:
-  * [DicomBrowser Module](https://www.slicer.org/wiki/Documentation/Nightly/Modules/DICOM) or an external command-line tool like 
-  * [DCM2NIIX](https://github.com/rordenlab/dcm2niix/releases) is a commandline tool for convert DICOMs or
  
 ## Work on your own:
 1. Repeat the CropVolume exercise with modifying the ROI (i.e., only crop a portion of the volume)
 2. Try importing the Rattus_norvegicus dataset using the instruction above. 
-2. **Obtain sample data from MorphoSource.** 
+
+* ###3. **Obtain sample data from MorphoSource.**### 
+ 
   * Go to https://www.morphosource.org/Detail/MediaDetail/Show/media_id/2095
   * Add the calcaneus **M2095-1895** to your cart (you should have an account on MorphoSource)
   * Agree to the terms and download. You should get a file called *Morphosource_amnh_mammals_m-188156_M2095-1895.zip*
