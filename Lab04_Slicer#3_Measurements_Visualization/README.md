@@ -40,28 +40,28 @@ Fiducial points and anchor points of lines and curves can be accessed and manipu
 
 ## Example: Using Markups for Measurement
 In this example, we will place a closed curve on one slice of a CT scan, measure the area of the curve, and visualize the region.
-1. Select the Sample Data module and load the MRIHead volume. For more detail and discussion, see the Slicer discourse thread [here] (https://discourse.slicer.org/t/how-can-i-calculate-an-area-on-a-ct-image-i-can-calculate-volumes-mm-3-but-not-areas-mm-2/1549/7).
-<img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab04_Slicer%233_Measurements_Visualization/images/sampleData.png">
+1. Select the Sample Data module and load the MRIHead volume. For more detail and discussion, see the Slicer discourse thread [here](https://discourse.slicer.org/t/how-can-i-calculate-an-area-on-a-ct-image-i-can-calculate-volumes-mm-3-but-not-areas-mm-2/1549/7).
+ <img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab04_Slicer%233_Measurements_Visualization/images/sampleData.png">
 
 2. Select the closed curve markup mode and place a curve around the brain tissue in the red view window (axial slice). You can change the Slicer layout to red window only for better detail.
 <img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab04_Slicer%233_Measurements_Visualization/images/CurveOnRed.png">
 
 3. Open the Python Interactor and paste the following snippet of code to calculate the area of the curve:
->curve=slicer.util.getNodesByClass("vtkMRMLMarkupsClosedCurveNode")[0]
->crossSectionSurface = vtk.vtkPolyData()
->areaMm2 = slicer.modules.markups.logic().GetClosedCurveSurfaceArea(curve, crossSectionSurface)
->print("Curve {0}: surface area = {1:.2f} mm2".format(curve.GetName(), areaMm2))
-<img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab04_Slicer%233_Measurements_Visualization/images/pythonInteract.png">
+ >curve=slicer.util.getNodesByClass("vtkMRMLMarkupsClosedCurveNode")[0]
+ >crossSectionSurface = vtk.vtkPolyData()
+ >areaMm2 = slicer.modules.markups.logic().GetClosedCurveSurfaceArea(curve, crossSectionSurface)
+ >print("Curve {0}: surface area = {1:.2f} mm2".format(curve.GetName(), areaMm2))
+ <img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab04_Slicer%233_Measurements_Visualization/images/pythonInteract.png">
 
 4. If you switched to the red slice view layout in the Slicer application, switch back to the conventional layout. To visualize the area of the curve, type the following code snippet in the Python Interactor:
->crossSectionSurfaceModel = slicer.modules.models.logic().AddModel(crossSectionSurface)
->crossSectionSurfaceModel.SetName("{0} surface".format(curve.GetName()))
->crossSectionSurfaceModel.CreateDefaultDisplayNodes()
->crossSectionSurfaceModel.GetDisplayNode().BackfaceCullingOff()
->crossSectionSurfaceModel.GetDisplayNode().SetColor(curve.GetDisplayNode().GetColor())
->crossSectionSurfaceModel.GetDisplayNode().SetOpacity(0.5)
->crossSectionSurfaceModel.SetDescription("Area[mm2] = {0:.2f}".format(areaMm2))
-<img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab04_Slicer%233_Measurements_Visualization/images/VisualizingCurveArea.png">
+ >crossSectionSurfaceModel = slicer.modules.models.logic().AddModel(crossSectionSurface)
+ >crossSectionSurfaceModel.SetName("{0} surface".format(curve.GetName()))
+ >crossSectionSurfaceModel.CreateDefaultDisplayNodes()
+ >crossSectionSurfaceModel.GetDisplayNode().BackfaceCullingOff()
+ >crossSectionSurfaceModel.GetDisplayNode().SetColor(curve.GetDisplayNode().GetColor())
+ >crossSectionSurfaceModel.GetDisplayNode().SetOpacity(0.5)
+ >crossSectionSurfaceModel.SetDescription("Area[mm2] = {0:.2f}".format(areaMm2))
+ <img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab04_Slicer%233_Measurements_Visualization/images/VisualizingCurveArea.png">
 
 
 * Linear transformations (explain what hardening does to IJK2RAS matrix, and why some other programs won't see it e.g., Fiji) https://discourse.slicer.org/t/image-with-hardened-transform-returns-to-original-when-opened-outside-slicer/431
