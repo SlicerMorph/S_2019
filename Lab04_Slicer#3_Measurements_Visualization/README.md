@@ -87,7 +87,7 @@ The Volume Rendering module provides interactive visualization of 3D image data.
 * If you have a dedicated graphics card, you may want to set the default visualization method to GPU rendering using the menu option in: Edit->Preferences 
 * Always set the rendering quality to normal 
 * The physical limits to the size of the volumes that can be rendered are determined by the graphics card RAM and MAX_3D_TEXTURE_SIZE. Every dimension of the image must be less than the value of the MAX_3D_TEXTURE_SIZE and the full dataset must fit into GPU’s RAM. For the full discussion on these limits, see the Slicer discourse thread [here](https://discourse.slicer.org/t/what-spec-gpu-is-required-for-gpu-volumentric-rendering/1596).
-* driver issues: how to configure laptops with two GPUS (discrete and onboard intel ones)
+* Driver issues: To configure laptops with two GPUS see [this discussion](https://discourse.slicer.org/t/can-i-choose-which-gpu-to-use/3149)
 * Crop 3D view vs Crop Volume confusion
 ## Example: Volume Rendering 
 1. Load the MRIHead volume from the Sample Data module.
