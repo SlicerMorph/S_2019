@@ -19,11 +19,10 @@ and drag'n'drop them into Slicer.
 
 <img src="images/registration_settings.PNG">
 
-Setting here indicates that the day3-lowres image is going to be registered against the baseline_lowres and the resultant *Rigid* transformation will be saved into the scene as *Rigid_day3_to_baseline*. Once also settings are correct hit apply, in my computer registration takes about 15 seconds, and when it finishes, it will automatically update the slice views to show the *day3-lowres* under this linear transformation. 
+Setting here indicates that the day3-lowres image is going to be registered against the baseline_lowres and the resultant *Rigid* transformation will be saved into the scene as *Rigid_day3_to_baseline*. Once settings are correct hit apply, in my computer registration takes about 15 seconds, and when it finishes, it will automatically update the slice views to show the *day3-lowres* under this linear transformation. 
+* Set the *baseline-lowres* as the foreground image and use slice sliders and different view to see how well the two volumes are now superimposed.
 
 <img src="images/registration_result.PNG"> 
-
-* Set the *baseline-lowres* as the foreground image and use slice sliders and different view to see how well the two volumes are now superimposed.
 
 * Because low-resolution volumes are actually in the same coordinate space as the original volumes, we can indeed apply this transformation to the origin *3995-f_day3* volume and review the alignment. To do that:
 * Go to the `Data` module, instead of `Subject Hierarchy` tab switch to `Transform Hierarchy` and expand the *Rigid_day3_to_baseline* transformation, and drag *3995-f_day3* under it. This will apply the rigid transformation to the original full-resolution volume.
@@ -34,5 +33,6 @@ Setting here indicates that the day3-lowres image is going to be registered agai
 
 <img src="images/final.PNG"> 
 
-## Question: 
+## Questions: 
 What do you think you need to save from this scene? 
+Try running the registration with the same settings on the original volumes, how long did it take, it is any better?
