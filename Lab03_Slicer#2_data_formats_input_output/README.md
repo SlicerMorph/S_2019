@@ -19,23 +19,23 @@ Two well-documented, and commonly supported image volume formats are:
 
 <img src="images/load_dialog_box.PNG">
     
-    * You should have the sequence loaded into your Scene
+   ### You should have the sequence loaded into your Scene
     
-    ### Go to `Volumes` module and correct the image spacing should be 0.0118mm (we know this from the scanner log file). 
+   ### Go to `Volumes` module and correct the image spacing should be 0.0118mm (we know this from the scanner log file). 
     
     
     <img src="images/volumes_module.PNG">
     
-    ### Go to `VectorToScalar` module and convert the vector image to a scalar volume using the luminance method
+   ### Go to `VectorToScalar` module and convert the vector image to a scalar volume using the luminance method
     
     <img src="images/vector_to_scalar.PNG">
     
-    ### The previous step will generate a new scalar volume (review your `Data` module contents), which is the file you would like to preserve for your downstream work. 
-    * You should have the sequence loaded into your Scene
-    * Go to `Volumes` module and correct the image spacing should be 0.0118mm (we know this from the scanner log file). 
-    * Go to `VectorToScalar` module and convert the vector image to a scalar volume using the luminance method
-    * The previous step will generate a new scalar volume (review your `Data` module contents), which is the file you would like to preserve for your downstream work. 
-    * You are ready to save your data.
+   ### The previous step will generate a new scalar volume (review your `Data` module contents), which is the file you would like to preserve for your downstream work. 
+   * You should have the sequence loaded into your Scene
+   * Go to `Volumes` module and correct the image spacing should be 0.0118mm (we know this from the scanner log file). 
+   * Go to `VectorToScalar` module and convert the vector image to a scalar volume using the luminance method
+   * The previous step will generate a new scalar volume (review your `Data` module contents), which is the file you would like to preserve for your downstream work. 
+   * You are ready to save your data.
     
     <img src="images/save_as.PNG">
 
