@@ -1,12 +1,12 @@
 # Lab 04 Slicer#3: Measurements (angles, lines, 3D curves, landmarks) and Visualization 
-**Overview of markups**
+## Overview of markups
 * Stable version of Slicer only supports fiducial markups 
 * Preview version adds: lines, angles, open and closed curves
 <img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab04_Slicer%233_Measurements_Visualization/images/MarkupWidgets.png">
 
 * Using the preview version is strongly recommended due to the additional markups types and improvements to the fiducial representation  allowing better performance with large numbers of markups and easier user interaction
 * Updates to Markups module are ongoing so check back for updates
-
+## Markup Types
 **ROI:**
 Place two points sequentially that specify corners of a rectangular cube defining the region of interest. The size and shape of the rectangle can be adjusted after placement.
 
@@ -24,13 +24,19 @@ Sequentially place points. A curve will be fit to the points and updated as addi
 
 <img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab04_Slicer%233_Measurements_Visualization/images/MarkupTypes.png">
 
-**Markup Placement**
+## Markup Placement
   * Slicer has two mouse modes: Transform, and Place. 
   * Transform mode is the default interaction mode. This mode allows interaction with loaded data (pan, zoom, rotate)
   * The icons in the mouse mode toolbar at the top of the main GUI allow to switch between these modes
   * Place mode allows to place one object then switches modes back to Transform mode. Fiducial is the default object.
   * Place mode can be made persistent by clicking the checkbox in the mouse mode toolbar.
 <img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab04_Slicer%233_Measurements_Visualization/images/FiducialPersistence.png">
+
+## Markup Management
+Fiducial points and anchor points of lines and curves can be accessed and manipulated using the Markups Module. 
+<img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab04_Slicer%233_Measurements_Visualization/images/markupsModule.png">
+* In the display menu, set the visibility, opacity, glyph and text size of a markup node
+* In the markups table, adjust visibility, labels, and position of individual fiducials or anchor points
 
 * Linear transformations (explain what hardening does to IJK2RAS matrix, and why some other programs won't see it e.g., Fiji) https://discourse.slicer.org/t/image-with-hardened-transform-returns-to-original-when-opened-outside-slicer/431
 
