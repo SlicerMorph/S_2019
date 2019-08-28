@@ -39,8 +39,9 @@ Fiducial points and anchor points of lines and curves can be accessed and manipu
 * In the markups table, adjust visibility, labels, and position of individual fiducials or anchor points
 
 ## Example: Using Markups for Measurement
-In this example, we will place a closed curve on one slice of a CT scan, measure the area of the curve, and visualize the region.
-1. Select the Sample Data module and load the MRIHead volume. For more detail and discussion, see the Slicer discourse thread [here](https://discourse.slicer.org/t/how-can-i-calculate-an-area-on-a-ct-image-i-can-calculate-volumes-mm-3-but-not-areas-mm-2/1549/7).
+In this example, we will place a closed curve on one slice of a CT scan, measure the area of the curve, and visualize the region. For more detail and discussion, see the Slicer discourse thread [here](https://discourse.slicer.org/t/how-can-i-calculate-an-area-on-a-ct-image-i-can-calculate-volumes-mm-3-but-not-areas-mm-2/1549/7).
+
+1. Select the Sample Data module and load the MRIHead volume. 
  <img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab04_Slicer%233_Measurements_Visualization/images/sampleData.png">
 
 2. Select the closed curve markup mode and place a curve around the brain tissue in the red view window (axial slice). You can change the Slicer layout to red window only for better detail.
