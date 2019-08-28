@@ -69,11 +69,6 @@ crossSectionSurfaceModel.SetDescription("Area[mm2] = {0:.2f}".format(areaMm2))
 ```
  <img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab04_Slicer%233_Measurements_Visualization/images/VisualizingCurveArea.png">
 
-
-* Linear transformations (explain what hardening does to IJK2RAS matrix, and why some other programs won't see it e.g., Fiji) https://discourse.slicer.org/t/image-with-hardened-transform-returns-to-original-when-opened-outside-slicer/431
-
-* check the status of measure planes extension 
-
 ## Volume Rendering
 The Volume Rendering module provides interactive visualization of 3D image data. For full documentation of the panel and functions, see [here](https://www.slicer.org/wiki/Documentation/Nightly/Modules/VolumeRendering#Panels_and_their_use).
 * Only scalar volumes can be used for volume rendering. Vector volumes (eg jpg, png, bmp, or other classic 2D formats) can be converted to scalar volumes using the [VectorToScalarVolume module](https://www.slicer.org/wiki/Documentation/Nightly/Modules/VectorToScalarVolume).
@@ -100,6 +95,20 @@ The Volume Rendering module provides interactive visualization of 3D image data.
 
 4. Under the **Display** tab, click on the **Select a Preset** menu. This menu contains saved transfer functions that work well for common data types. Select **MRI Default** (row 4, column 5). Try adjusting the color and opacity functions of this suggested display setting.
 <img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab04_Slicer%233_Measurements_Visualization/images/colorPreset.png">
+
+## Example: Displaying Mesh Data
+Mesh data in Slicer is displayed using the Models Module. It can not be rendered using the Volume Render Module.
+1. Load the Gorilla Skull Reference Model under the SlicerMorph tab of the Sample Data module (you will need SLicerMorph installed to see this option in the menu).
+
+<img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab04_Slicer%233_Measurements_Visualization/images/sampleDataGorilla.png
+
+2.Center the dataset in the 3D viewing window using the button at the top left of the window. Optionally, change to the 3D only layout.
+
+<img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab04_Slicer%233_Measurements_Visualization/images/centerGorilla.png">
+
+3. Open the Models module. Experiment with changing the color and opacity of the skull.
+<img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab04_Slicer%233_Measurements_Visualization/images/Models.png">
+
 
 ## Bonus content: SlicerAnimator (if we have time)
 1. Install Sequences extension from Extension Manager.
