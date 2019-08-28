@@ -86,9 +86,17 @@ The Volume Rendering module provides interactive visualization of 3D image data.
 * Slicer supports both CPU and GPU volume rendering. CPU based will always work, whether you are on a computer without a dedicated graphics card, or on a remote connection (which may not support hardware accelerated graphics), but it is slow. GPU requires you have a dedicated graphics card with 1GB or more videoRAM, but it is much faster. 
 * If you have a dedicated graphics card, you may want to set the default visualization method to GPU rendering using the menu option in: Edit->Preferences 
 * Always set the rendering quality to normal 
-* physical limits to volume rendering (discussion on Discourse)
+* The physical limits to the size of the volumes that can be rendered are determined by the graphics card RAM and MAX_3D_TEXTURE_SIZE. Every dimension of the image must be less than the value of the MAX_3D_TEXTURE_SIZE and the full dataset must fit into GPU’s RAM. For the full discussion on these limits, see the Slicer discourse thread [here](https://discourse.slicer.org/t/what-spec-gpu-is-required-for-gpu-volumentric-rendering/1596).
 * driver issues: how to configure laptops with two GPUS (discrete and onboard intel ones)
 * Crop 3D view vs Crop Volume confusion
+## Example: Volume Rendering 
+1. Load the MRIHead volume from the Sample Data module.
+2. Open the Volume Rendering module. In the *Volume* field, make sure the volume MRHead is selected. Click the eyeball next to the *Volume* field to display the image. You can change the 3D Slicer layout to 3D only.
+<img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab04_Slicer%233_Measurements_Visualization/images/initialDisplay.png">
+3. Expand the *Advanced* tab to view the opacity and color transfer functions. You can click on these functions to move or add additional control points.
+<img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab04_Slicer%233_Measurements_Visualization/images/initialTF.png">
+4.Under the *Display* tab, click on the *Select a Preset* menu. This menu contains saved transfer functions that work well for common data types. Select *MRI Default* (row 4, column 5). Try adjusting the color and opacity functions of this suggested display setting.
+<img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab04_Slicer%233_Measurements_Visualization/images/colorPreset.png">
 
 ## Bonus content: SlicerAnimator (if we have time)
 1. Install Sequences extension from Extension Manager.
