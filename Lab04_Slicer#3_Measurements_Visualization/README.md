@@ -72,19 +72,19 @@ crossSectionSurfaceModel.SetDescription("Area[mm2] = {0:.2f}".format(areaMm2))
 
 * Linear transformations (explain what hardening does to IJK2RAS matrix, and why some other programs won't see it e.g., Fiji) https://discourse.slicer.org/t/image-with-hardened-transform-returns-to-original-when-opened-outside-slicer/431
 
-* [calculate area of a from CT slice](https://discourse.slicer.org/t/how-can-i-calculate-an-area-on-a-ct-image-i-can-calculate-volumes-mm-3-but-not-areas-mm-2/1549/5)
 * check the status of measure planes extension 
 
 ## Volume Rendering
-* [Volume Rendering panel and functions](https://www.slicer.org/wiki/Documentation/Nightly/Modules/VolumeRendering#Panels_and_their_use)
-* Volume rendering vs surface rendering
-* opacity transfer function
-* color adjustments
+The Volume Rendering module provides interactive visualization of 3D image data. For full documentation of the panel and functions, see [here](https://www.slicer.org/wiki/Documentation/Nightly/Modules/VolumeRendering#Panels_and_their_use).
+* Only scalar volumes can be used for volume rendering. Vector volumes (eg jpg, png, bmp, or other classic 2D formats) can be converted to scalar volumes using the [VectorToScalarVolume module](https://www.slicer.org/wiki/Documentation/Nightly/Modules/VectorToScalarVolume).
+* 3D Slicer uses volume ray casting to computes 2D images from 3D volumetric data sets. Unlike surface reconstruction, there is no estimation of object surfaces or segmentation.
+* The values displayed are calculated using a transfer function that incorporates voxel intensities, material properties, and illumination.
+* The opacity and color of the image can be adjusted by modifying their transfer functions in the Volume Rendering module.
+ <img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab04_Slicer%233_Measurements_Visualization/images/volumeRenderTF.png">
 * GPU vs CPU raycasting performance differences
-* always set the rendering quality to normal 
+* Always set the rendering quality to normal 
 * physical limits to volume rendering (discussion on Discourse)
 * driver issues: how to configure laptops with two GPUS (discrete and onboard intel ones)
-* remind that volume rendering is not a segmentation. 
 * Crop 3D view vs Crop Volume confusion
 
 ## Bonus content: SlicerAnimator (if we have time)
