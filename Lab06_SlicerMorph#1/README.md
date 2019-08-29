@@ -9,10 +9,6 @@
 
 1. Search for `Sample Data` module and scroll down to find the SlicerMorph section. Click on **Mouse Skull Landmarks**. This will download a file called `Mouse_Skull_LMs.zip` into your Cache folder, and automatically uncompress it into a subfolder at the same place as the zip file. Please check the folder contents and note that there are 126 fcsv files. You can drag'n'drop one of the fcsv files into Slicer and see that it contains 55 landmarks (you may need to hit the center field of view button in 3D rendering window). Once you verify your contents hit `CTRL + W` to empty your Slicer scene.
 
-Landmarks should be collected in the same order and we assume each file contains the identical number of landmarks (you need to have landmarks, even if they are missing). 
-
-**NOTE** Even if you would like to digitize landmarks from the same specimen multiple times (e.g., to check your consistency), we require you to save each attempt as distinct files. Likewise, if you would like to digitize multiple sets of landmarks from the same articulated specimens (e.g., skull, mandible, dentition, so forth), please create separate markup nodes for each of them, and save them individually. 
-
 2. Search for `GPA` module. You layout will switch to having two 3D rendering window, a single slice view, a chart view and a table view. 
 
 3. Click on the `..` button next to the `Landmark Folder` and navigate to your Mouse_Skulls_LMs subfolder from the previous step. 
