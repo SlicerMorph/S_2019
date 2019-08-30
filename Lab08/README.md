@@ -3,14 +3,24 @@ This lab introduces simple Python scripts to preform custom image preprocessing 
 
 ## Aligning volumes using landmarks (Frankfort alignment plane).
 The Frankfurt plane defines the standard anatomical position of the human skull. The plane passes through landmarks placed at the left orbitale and the left and right tragus. Alignment with the Frankfurt plane is a standard preprocessing step when analyzing human face, brain, or head images.
+<img src="https://https://github.com/SlicerMorph/S_2019/blob/master/Lab08/images/Frankfurt.png">
+
 1. Download the sample data here. It contains a CT scan of a human head that is out of the standard alignment. 
 2. Open Slicer and load the data. In the Volume Rendering module, adjust the view properties. 
-3. Use the menu button on the top bar to initiate lanmark placement mode. Place three landmarks on the face at the left orbitale (lowest point of the left eye socket) and the left and right tragus (upper margin of each ear canal). See the figure below for placement, but it is ok to approximate for this exercise. 
+
+<img src="https://https://github.com/SlicerMorph/S_2019/blob/master/Lab08/images/unaligned.png">
+
+3. Use the menu button on the top bar to initiate lanmark placement mode. Place three landmarks on the face at the left orbitale (lowest point of the left eye socket) and the left and right tragus (upper margin of each ear canal). It's ok to approximate for this exercise. 
+
 4.Open the Markups module and rename the landmarks 
     * left orbitale: **zyoL**
     * left tragus: **poL**
     * right tragus: **poR**
+
+<img src="https://https://github.com/SlicerMorph/S_2019/blob/master/Lab08/images/landmarks.png">
+
 5. Open the Python Interactor. Copy and paste the following script: 
+
 ```
 import numpy
 scene = slicer.mrmlScene
@@ -93,6 +103,10 @@ scene.AddNode(transform3)
 transform3.SetAndObserveMatrixTransformToParent(vTransform3.GetMatrix())
 transform2.SetAndObserveTransformNodeID(transform3.GetID())
 ```
+The image should now appear in standard anatomical alignment. In the 3D viewer, you can expand the view menu with the pin icon. CLicking on the axis points will select the standard viewpoints. 
+
+<img src="https://https://github.com/SlicerMorph/S_2019/blob/master/Lab08/images/aligned.png">
+
 ## Reading a segmentation and creating a histogram.
 In this section, you will use a segmentation to mask an image, calculate regional statistics and plot a histogram for each segment. For the first step, you may either do your own segmentation on the MRHead sample image, or you may copy and past a Python script that will automatically generate a simple segmentation. 
 
