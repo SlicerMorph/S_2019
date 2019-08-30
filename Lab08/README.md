@@ -31,6 +31,7 @@ scene = slicer.mrmlScene
 F = getNodesByClass('vtkMRMLMarkupsFiducialNode')
 F = F[0]
 
+# Get the IDs of porions and zygomatico - orbitale  suture from the fiducial list by name
 po1_id = -1; po2_id = -1; zyo_id = -1;
 
 for i in range(0, F.GetNumberOfFiducials()):
@@ -41,6 +42,8 @@ for i in range(0, F.GetNumberOfFiducials()):
 	if F.GetNthFiducialLabel(i) == 'zyoL' :
 		zyo_id = i
 
+
+# Get the coordinates of landmarks
 po1 = [0, 0, 0]
 po2 = [0, 0, 0]
 zyo = [0, 0, 0]
@@ -49,11 +52,13 @@ F.GetNthFiducialPosition(po1_id,po1)
 F.GetNthFiducialPosition(po2_id,po2)
 F.GetNthFiducialPosition(zyo_id,zyo)
 
+# The vector between two porions that we will align to LR axis by calculating the yaw angle
 po =[po1[0] - po2[0], po1[1] -po2[1], po1[2]-po2[2]]
 vTransform = vtk.vtkTransform()
 vTransform.RotateZ(-numpy.arctan2(po[1], po[0])*180/numpy.pi)
 transform.SetAndObserveMatrixTransformToParent(vTransform.GetMatrix())
 
+# Apply the transform to the fiducials and the volume
 transform = slicer.vtkMRMLLinearTransformNode()
 scene.AddNode(transform) 
 transform.SetAndObserveMatrixTransformToParent(vTransform.GetMatrix())
@@ -62,6 +67,7 @@ V = V[0]
 V.SetAndObserveTransformNodeID(transform.GetID())
 F.SetAndObserveTransformNodeID(transform.GetID())
 
+# Get the updated (transformed) coordinates from the list
 po1 = [0, 0, 0]
 po2 = [0, 0, 0]
 zyo = [0, 0, 0]
@@ -70,19 +76,24 @@ F.GetNthFiducialPosition(po1_id,po1)
 F.GetNthFiducialPosition(po2_id,po2)
 F.GetNthFiducialPosition(zyo_id,zyo)
 
+# Apply the transform to the coordinates
 po1 = vTransform.GetMatrix().MultiplyPoint([po1[0], po1[1], po1[2], 0])
 po2 = vTransform.GetMatrix().MultiplyPoint([po2[0], po2[1], po2[2], 0])
 zyo = vTransform.GetMatrix().MultiplyPoint([zyo[0], zyo[1], zyo[2], 0])
 po =[po1[0]-po2[0], po1[1]-po2[1], po1[2]-po2[2]]
 
+# Calculate the rotation for the roll 
 vTransform2 = vtk.vtkTransform()
 vTransform2.RotateY(numpy.arctan2(po[2], po[0])*180/numpy.pi)
 
+# Apply the transform to previous transform hierarchy
 transform2 = slicer.vtkMRMLLinearTransformNode()
 scene.AddNode(transform2) 
 transform2.SetAndObserveMatrixTransformToParent(vTransform2.GetMatrix())
 transform.SetAndObserveTransformNodeID(transform2.GetID())
 
+
+# Get the coordinates again
 po1 = [0, 0, 0]
 po2 = [0, 0, 0]
 zyo = [0, 0, 0]
@@ -91,22 +102,26 @@ F.GetNthFiducialPosition(po1_id,po1)
 F.GetNthFiducialPosition(po2_id,po2)
 F.GetNthFiducialPosition(zyo_id,zyo)
 
+# Apply transforms to points to get updated coordinates
 po1 = vTransform.GetMatrix().MultiplyPoint([po1[0], po1[1], po1[2], 0])
 po2 = vTransform.GetMatrix().MultiplyPoint([po2[0], po2[1], po2[2], 0])
 zyo = vTransform.GetMatrix().MultiplyPoint([zyo[0], zyo[1], zyo[2], 0])
 po1 = vTransform2.GetMatrix().MultiplyPoint([po1[0], po1[1], po1[2], 0])
 po2 = vTransform2.GetMatrix().MultiplyPoint([po2[0], po2[1], po2[2], 0])
 zyo = vTransform2.GetMatrix().MultiplyPoint([zyo[0], zyo[1], zyo[2], 0])
+
+# The vector for pitch angle
 po_zyo = [zyo[0]-(po1[0]+po2[0])/2, zyo[1]-(po1[1]+po2[1])/2, zyo[2]-(po1[2]+po2[2])/2]
 
+# Calculate the transform for aligning pitch
 vTransform3 = vtk.vtkTransform()
 vTransform3.RotateX(-numpy.arctan2(po_zyo[2], po_zyo[1])*180/numpy.pi)
 
+# Apply the transform to both fiducial list and the volume
 transform3 = slicer.vtkMRMLLinearTransformNode()
 scene.AddNode(transform3) 
 transform3.SetAndObserveMatrixTransformToParent(vTransform3.GetMatrix())
-transform2.SetAndObserveTransformNodeID(transform3.GetID())
-```
+transform2.SetAndObserveTransformNodeID(transform3.GetID())```
 The image should now appear in standard anatomical alignment. In the 3D viewer, you can expand the view menu with the pin icon. Clicking on the axis labels will select the standard viewpoints. If you are satisfied with the result, you can "harden" the transform using the GUI or the Python command:
 
 ```
