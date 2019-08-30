@@ -1,7 +1,10 @@
 # Lab 08 - Using the Python Interactor in Slicer
-This lab introduces simple Python scripts to preform custom image preprocessing tasks. These scripts can easily be customized and show how the functions in the Slicer application can be extended or automated using the Python interactor.
+This lab introduces simple Python scripts to preform custom image preprocessing tasks. These scripts can easily be customized and show how the functions in the Slicer application can be extended or automated using the Python interactor. 
 
-## Aligning volumes using landmarks (Frankfort alignment plane).
+**Note 1: These examples assume you are starting in an empty scene. Please clear the scene before beginning each example.**
+**Note 2: Example 2 requires the Segment Editor Extra Effects Extension to be installed. Please install this from the extension manager and restart before beginning.**
+
+## Example 1: Aligning volumes using landmarks (Frankfort alignment plane).
 The Frankfurt plane defines the standard anatomical position of the human skull. The plane passes through landmarks placed at the left orbitale and the left and right tragus. Alignment with the Frankfurt plane is a standard preprocessing step when analyzing human face, brain, or head images.
 <img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab08/images/Frankfurt.png">
 
@@ -103,11 +106,15 @@ scene.AddNode(transform3)
 transform3.SetAndObserveMatrixTransformToParent(vTransform3.GetMatrix())
 transform2.SetAndObserveTransformNodeID(transform3.GetID())
 ```
-The image should now appear in standard anatomical alignment. In the 3D viewer, you can expand the view menu with the pin icon. Clicking on the axis labels will select the standard viewpoints. 
+The image should now appear in standard anatomical alignment. In the 3D viewer, you can expand the view menu with the pin icon. Clicking on the axis labels will select the standard viewpoints. If you are satisfied with the result, you can "harden" the transform using the GUI or the Python command:
+
+```
+slicer.vtkSlicerTransformLogic().hardenTransform(V)
+```
 
 <img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab08/images/aligned.png">
 
-## Reading a segmentation and creating a histogram.
+## Example 2: Reading a segmentation and creating a histogram.
 In this section, you will use a segmentation to mask an image, calculate regional statistics and plot a histogram for each segment. In the first step, you will start from a Python script that will automatically generate a simple segmentation. In the second step, you will create your own segmentation and update the script.
 
 1. Open Slicer and load the MRBrainTumor1 volume from the Sample Data module.
