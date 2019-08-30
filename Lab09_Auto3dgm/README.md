@@ -75,7 +75,7 @@ b) type in the Python Interactor
 
 8) Run auto3dgm in the **Run** tab
 
-<img src="images/08.png">
+<img src="images/10.png">
 
 ## Visualize aligned meshes
 1) Click **Start mesh visualization server**
