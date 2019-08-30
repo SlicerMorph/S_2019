@@ -5,7 +5,7 @@ This lab introduces simple Python scripts to preform custom image preprocessing 
 The Frankfurt plane defines the standard anatomical position of the human skull. The plane passes through landmarks placed at the left orbitale and the left and right tragus. Alignment with the Frankfurt plane is a standard preprocessing step when analyzing human face, brain, or head images.
 <img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab08/images/Frankfurt.png">
 
-1. Download the sample data here. It contains a CT scan of a human head that is out of the standard alignment. 
+1. Download the sample data using [this link](https://github.com/SlicerMorph/S_2019/raw/master/Lab08/data/MRHead.nrrd). It contains a CT scan of a human head that is out of the standard alignment. 
 2. Open Slicer and load the data. In the Volume Rendering module, adjust the view properties. 
 
 <img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab08/images/unaligned.png">
