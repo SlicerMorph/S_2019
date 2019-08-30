@@ -1,5 +1,5 @@
 # Lab 09 Auto3Dgm: Establishing Landmark-free correspondence 
-### Date: 08/29
+### Date: 08/30
 ### Time: 2 hours
 
 ## Objectives 
@@ -63,35 +63,32 @@ b) type in the Python Interactor
 
 <img src="images/05.png">
 
-5) In the UI, choose the input folder. We provide a sample data of 4 mandibular teeth to experiment in the lab. 
+5) In the UI, choose the input folder by either selecting the folder or type in the address box. We provide a sample data of 4 mandibular teeth to experiment in the lab. 
 
         ./auto3dgmSlicerExtension/Auto3dgm/auto3dgm_nazar/tests/fixtures/sample
         
-6) Choose the output folder to be the following in order to visualize the aligned meshes
+6) Choose your output folder to save the aligned meshes and visualize the aligned meshes
 
         ./auto3dgmSlicerExtension/meshviewer/web_view_mesh/mesh
 
 7) Set **Phase 1 points** to be 100 and **Phase 2 points** to be 200
-
-<img src="images/06.png">
 
 8) Run auto3dgm in the **Run** tab
 
 <img src="images/07.png">
 
 ## Visualize aligned meshes
-1) In the **Visualize/Output** tab, select the input folder to be 
+1) Click **Start mesh visualization server**
 
-        ./auto3dgmSlicerExtension/meshviewer/web_view_mesh/mesh
-2) Click **Start mesh visualization server**
-
-3) Click **View Phase 1 alignment**
+2) Click **View Phase 1 alignment**
 
 <img src="images/08.png">
 
-4) The aligned meshese will be shown in a pop-up browser window like the following
+3) The aligned meshese will be shown in a pop-up browser window like the following
 
 <img src="images/09.png">
+
+4) Click **View Phase 2 alignment** to view the final alignment
 
 ## Auto3dgm in other platforms
 1) [Matlab](https://github.com/JuliaWinchester/auto3dgm-matlab-gorgon)
