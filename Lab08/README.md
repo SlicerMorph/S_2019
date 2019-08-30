@@ -121,7 +121,9 @@ vTransform3.RotateX(-numpy.arctan2(po_zyo[2], po_zyo[1])*180/numpy.pi)
 transform3 = slicer.vtkMRMLLinearTransformNode()
 scene.AddNode(transform3) 
 transform3.SetAndObserveMatrixTransformToParent(vTransform3.GetMatrix())
-transform2.SetAndObserveTransformNodeID(transform3.GetID())```
+transform2.SetAndObserveTransformNodeID(transform3.GetID())
+
+```
 The image should now appear in standard anatomical alignment. In the 3D viewer, you can expand the view menu with the pin icon. Clicking on the axis labels will select the standard viewpoints. If you are satisfied with the result, you can "harden" the transform using the GUI or the Python command:
 
 ```
