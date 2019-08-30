@@ -11,6 +11,12 @@ Download and install [slicer](https://download.slicer.org/)
 
 ## How to install auto3dgm extension
 ### Install dependencies manually:
+0) Open Slicer and type in the python interactor
+            
+            pip_install("scipy")
+            pip_install("mosek")
+            
+If the above failed, do the following
 1) Open a terminal in your computer and type the following: 
 - Mac: 
 
@@ -26,6 +32,11 @@ Download and install [slicer](https://download.slicer.org/)
 
         <drive, e.g. c:>\Users\<user>\AppData\Local\NA-MIC\<Slicer version name>\bin\SlicerPython.exe -m pip install scipy
         <drive, e.g. c:>\Users\<user>\AppData\Local\NA-MIC\<Slicer version name>\bin\SlicerPython.exe -m pip install -f https://download.mosek.com/stable/wheel/index.html Mosek
+        
+- Windows option 2
+        
+        c:\Program Files\Slicer <version>\bin\SlicerPython.exe -m pip install scipy
+        c:\Program Files\Slicer <version>\bin\SlicerPython.exe -m pip install -f https://download.mosek.com/stable/wheel/index.html Mosek
         
 The slicer_install_dir can be found by the following steps:
 
