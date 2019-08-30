@@ -75,14 +75,14 @@ b) type in the Python Interactor
 
 8) Run auto3dgm in the **Run** tab
 
-<img src="images/07.png">
+<img src="images/08.png">
 
 ## Visualize aligned meshes
 1) Click **Start mesh visualization server**
 
 2) Click **View Phase 1 alignment**
 
-<img src="images/08.png">
+<img src="images/07.png">
 
 3) The aligned meshese will be shown in a pop-up browser window like the following
 
