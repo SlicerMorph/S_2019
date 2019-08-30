@@ -125,6 +125,12 @@ In this section, you will use a segmentation to mask an image, calculate regiona
 
 3. Use the following code snippet to iteratively mask the image with each segment and calculate the corresponding histogram:
 ```
+import numpy as np
+masterVolumeNode = getNodesByClass('vtkMRMLScalarVolumeNode')
+masterVolumeNode=masterVolumeNode[0]
+segmentationNode = getNodesByClass('vtkMRMLSegmentationNode')
+segmentationNode = segmentationNode[0]
+
 # Create segment editor to get access to effects
 segmentEditorWidget = slicer.qMRMLSegmentEditorWidget()
 # To show segment editor widget (useful for debugging): segmentEditorWidget.show()
@@ -187,7 +193,7 @@ slicer.mrmlScene.RemoveNode(segmentEditorNode)
 <img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab08/images/histogram.png">
 
 4. Bonus: Generate or load your own segmentation. Reuse the code snippet from Step 3 to calculate segment histograms.
-5. Bonus: Update the code snippet to calculate an average value for each se
+5. Bonus: Update the code snippet to calculate an average value for each segment.
 
 
 
