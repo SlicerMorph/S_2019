@@ -212,6 +212,9 @@ slicer.mrmlScene.RemoveNode(segmentEditorNode)
 
 4. Bonus: Generate or load your own segmentation. Reuse the code snippet from Step 3 to calculate segment histograms.
 
-
+5. Bonus: Get the maximim value from each segment by modifying the code from Step 3. Hint:
+  ```
+  a = arrayFromVolume(maskedVolume)
+  ```
 
 
