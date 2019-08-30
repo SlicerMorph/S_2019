@@ -2,6 +2,7 @@
 This lab introduces simple Python scripts to preform custom image preprocessing tasks. These scripts can easily be customized and show how the functions in the Slicer application can be extended or automated using the Python interactor. 
 
 **Note 1: These examples assume you are starting in an empty scene. Please clear the scene before beginning each example.**
+
 **Note 2: Example 2 requires the Segment Editor Extra Effects Extension to be installed. Please install this from the extension manager and restart before beginning.**
 
 ## Example 1: Aligning volumes using landmarks (Frankfort alignment plane).
