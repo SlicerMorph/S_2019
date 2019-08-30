@@ -212,9 +212,44 @@ slicer.mrmlScene.RemoveNode(segmentEditorNode)
 
 4. Bonus: Generate or load your own segmentation. Reuse the code snippet from Step 3 to calculate segment histograms.
 
-5. Bonus: Get the maximim value from each segment by modifying the code from Step 3. Hint:
+5. Bonus: Get the maximim value from each segment by modifying the code from Step 3.
   ```
+ import numpy as np
+masterVolumeNode = getNodesByClass('vtkMRMLScalarVolumeNode')
+masterVolumeNode=masterVolumeNode[0]
+segmentationNode = getNodesByClass('vtkMRMLSegmentationNode')
+segmentationNode = segmentationNode[0]
+
+# Create segment editor to get access to effects
+segmentEditorWidget = slicer.qMRMLSegmentEditorWidget()
+# To show segment editor widget (useful for debugging): segmentEditorWidget.show()
+segmentEditorWidget.setMRMLScene(slicer.mrmlScene)
+segmentEditorNode = slicer.vtkMRMLSegmentEditorNode()
+slicer.mrmlScene.AddNode(segmentEditorNode)
+segmentEditorWidget.setMRMLSegmentEditorNode(segmentEditorNode)
+segmentEditorWidget.setSegmentationNode(segmentationNode)
+segmentEditorWidget.setMasterVolumeNode(masterVolumeNode)
+
+# Set up masking parameters
+segmentEditorWidget.setActiveEffectByName("Mask volume")
+effect = segmentEditorWidget.activeEffect()
+# set fill value to be outside the valid intensity range
+intensityRange = masterVolumeNode.GetImageData().GetScalarRange()
+effect.setParameter("FillValue", str(intensityRange[0]-1))
+# Blank out voxels that are outside the segment
+effect.setParameter("Operation", "FILL_OUTSIDE")
+# Create a volume that will store temporary masked volumes
+maskedVolume = slicer.mrmlScene.AddNewNodeByClass("vtkMRMLScalarVolumeNode", "Temporary masked volume")
+effect.self().outputVolumeSelector.setCurrentNode(maskedVolume)
+
+for segmentIndex in range(segmentationNode.GetSegmentation().GetNumberOfSegments()):
+  # Set active segment
+  segmentID = segmentationNode.GetSegmentation().GetNthSegmentID(segmentIndex)
+  segmentEditorWidget.setCurrentSegmentID(segmentID)
+  # Apply mask
+  effect.self().onApply()
   a = arrayFromVolume(maskedVolume)
+  print(a.max())
   ```
 
 
