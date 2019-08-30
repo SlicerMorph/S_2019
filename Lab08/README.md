@@ -12,7 +12,7 @@ The Frankfurt plane defines the standard anatomical position of the human skull.
 
 3. Use the menu button on the top bar to initiate lanmark placement mode. Place three landmarks on the face at the left orbitale (lowest point of the left eye socket) and the left and right tragus (upper margin of each ear canal). It's ok to approximate for this exercise. 
 
-4.Open the Markups module and rename the landmarks 
+4. Open the Markups module and rename the landmarks 
     * left orbitale: **zyoL**
     * left tragus: **poL**
     * right tragus: **poR**
@@ -103,12 +103,85 @@ scene.AddNode(transform3)
 transform3.SetAndObserveMatrixTransformToParent(vTransform3.GetMatrix())
 transform2.SetAndObserveTransformNodeID(transform3.GetID())
 ```
-The image should now appear in standard anatomical alignment. In the 3D viewer, you can expand the view menu with the pin icon. CLicking on the axis points will select the standard viewpoints. 
+The image should now appear in standard anatomical alignment. In the 3D viewer, you can expand the view menu with the pin icon. Clicking on the axis labels will select the standard viewpoints. 
 
 <img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab08/images/aligned.png">
 
 ## Reading a segmentation and creating a histogram.
-In this section, you will use a segmentation to mask an image, calculate regional statistics and plot a histogram for each segment. For the first step, you may either do your own segmentation on the MRHead sample image, or you may copy and past a Python script that will automatically generate a simple segmentation. 
+In this section, you will use a segmentation to mask an image, calculate regional statistics and plot a histogram for each segment. In the first step, you will start from a Python script that will automatically generate a simple segmentation. In the second step, you will create your own segmentation and update the script.
+
+1. Open Slicer and load the MRBrainTumor1 volume from the Sample Data module.
+
+2. Open the Segment Editor. Create three segments: Tumor, Reference, and Background. Use the spherical paint brush to place the segments on the brain volume.
+
+<img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab08/images/segments.png">
+
+3. Use the following code snippet to iteratively mask the image with each segment and calculate the corresponding histogram:
+```
+# Create segment editor to get access to effects
+segmentEditorWidget = slicer.qMRMLSegmentEditorWidget()
+# To show segment editor widget (useful for debugging): segmentEditorWidget.show()
+segmentEditorWidget.setMRMLScene(slicer.mrmlScene)
+segmentEditorNode = slicer.vtkMRMLSegmentEditorNode()
+slicer.mrmlScene.AddNode(segmentEditorNode)
+segmentEditorWidget.setMRMLSegmentEditorNode(segmentEditorNode)
+segmentEditorWidget.setSegmentationNode(segmentationNode)
+segmentEditorWidget.setMasterVolumeNode(masterVolumeNode)
+
+# Set up masking parameters
+segmentEditorWidget.setActiveEffectByName("Mask volume")
+effect = segmentEditorWidget.activeEffect()
+# set fill value to be outside the valid intensity range
+intensityRange = masterVolumeNode.GetImageData().GetScalarRange()
+effect.setParameter("FillValue", str(intensityRange[0]-1))
+# Blank out voxels that are outside the segment
+effect.setParameter("Operation", "FILL_OUTSIDE")
+# Create a volume that will store temporary masked volumes
+maskedVolume = slicer.mrmlScene.AddNewNodeByClass("vtkMRMLScalarVolumeNode", "Temporary masked volume")
+effect.self().outputVolumeSelector.setCurrentNode(maskedVolume)
+
+# Create chart
+plotChartNode = slicer.mrmlScene.AddNewNodeByClass("vtkMRMLPlotChartNode", "Histogram")
+plotChartNode.AddAndObservePlotSeriesNodeID(plotSeriesNode.GetID())
+
+# Create histogram plot data series for each masked volume
+for segmentIndex in range(segmentationNode.GetSegmentation().GetNumberOfSegments()):
+  # Set active segment
+  segmentID = segmentationNode.GetSegmentation().GetNthSegmentID(segmentIndex)
+  segmentEditorWidget.setCurrentSegmentID(segmentID)
+  # Apply mask
+  effect.self().onApply()
+  # Compute histogram values
+  histogram = np.histogram(arrayFromVolume(maskedVolume), bins=100, range=intensityRange)
+  # Save results to a new table node
+  segment = segmentationNode.GetSegmentation().GetNthSegment(segmentIndex)
+  tableNode=slicer.mrmlScene.AddNewNodeByClass("vtkMRMLTableNode", segment.GetName() + " histogram table")
+  updateTableFromArray(tableNode, histogram)
+  tableNode.GetTable().GetColumn(0).SetName("Count")
+  tableNode.GetTable().GetColumn(1).SetName("Intensity")
+  # Create new plot data series node
+  plotSeriesNode = slicer.mrmlScene.AddNewNodeByClass("vtkMRMLPlotSeriesNode", segment.GetName() + " histogram")
+  plotSeriesNode.SetAndObserveTableNodeID(tableNode.GetID())
+  plotSeriesNode.SetXColumnName("Intensity")
+  plotSeriesNode.SetYColumnName("Count")
+  plotSeriesNode.SetPlotType(slicer.vtkMRMLPlotSeriesNode.PlotTypeScatter)
+  plotSeriesNode.SetMarkerStyle(slicer.vtkMRMLPlotSeriesNode.MarkerStyleNone)
+  plotSeriesNode.SetUniqueColor()
+  # Add plot to chart
+  plotChartNode.AddAndObservePlotSeriesNodeID(plotSeriesNode.GetID())
+
+# Show chart in layout
+slicer.modules.plots.logic().ShowChartInLayout(plotChartNode)
+
+# Delete temporary node
+slicer.mrmlScene.RemoveNode(maskedVolume)
+slicer.mrmlScene.RemoveNode(segmentEditorNode)
+```
+<img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab08/images/histogram.png">
+
+4. Bonus: Generate or load your own segmentation. Reuse the code snippet from Step 3 to calculate segment histograms.
+5. Bonus: Update the code snippet to calculate an average value for each se
+
 
 
 
