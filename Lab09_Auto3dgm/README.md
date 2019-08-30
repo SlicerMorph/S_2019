@@ -90,6 +90,27 @@ b) type in the Python Interactor
 
 4) Click **View Phase 2 alignment** to view the final alignment
 
+## Update Auto3dgm Slicer Extension
+1) Open a terminal in your computer and change directory ( `cd` ) to the folder where you downloaded the Auto3dgm Extension
+```
+cd auto3dgmSlicerExtension
+```
+
+2) Type in the terminal
+```
+git pull
+```
+
+3) To update submodules, type in the terminal
+```
+cd meshviewer/web_view_mesh
+git submodule update --init --recursive
+cd ../../Auto3dgm/auto3dgm_nazar
+git submodule update --init --recursive
+```
+
+4) Use Extension Wizard to install Auto3dgm Slicer extension again. 
+
 ## Auto3dgm in other platforms
 1) [Matlab](https://github.com/JuliaWinchester/auto3dgm-matlab-gorgon)
 2) [R](https://github.com/sayanmuk/Auto3DGM)
