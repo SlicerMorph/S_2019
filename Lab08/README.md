@@ -211,8 +211,6 @@ slicer.mrmlScene.RemoveNode(segmentEditorNode)
 <img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab08/images/histogram.png">
 
 4. Bonus: Generate or load your own segmentation. Reuse the code snippet from Step 3 to calculate segment histograms.
-5. Bonus: Update the code snippet to calculate an average value for each segment.
-
 
 
 
