@@ -8,7 +8,7 @@
 * [Boyer, Doug M., et al. "A new fully automated approach for aligning and comparing shapes." The Anatomical Record 298.1 (2015): 249-276.](https://onlinelibrary.wiley.com/doi/full/10.1002/ar.23084)
 
 ### Fibre bundles
-* [Shan Shan, “Probabilistic Models on Fibre bundles.” Ph.D. Thesis, Duke University (2019)](/images/thesis.pdf)
+* [Shan Shan, “Probabilistic Models on Fibre bundles.” Ph.D. Thesis, Duke University (2019)](images/thesis.pdf)
 
 ### Applications of Auto3dgm
 * [Boyer, Doug M. "Relief index of second mandibular molars is a correlate of diet among prosimian primates and other euarchontan mammals." Journal of Human Evolution 55.6 (2008): 1118-1137.](https://www.ncbi.nlm.nih.gov/pubmed/18930306)
