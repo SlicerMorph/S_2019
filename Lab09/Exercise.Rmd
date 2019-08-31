@@ -1,0 +1,97 @@
+---
+title: "R Notebook For SlicerMorph"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+if (!require(geomorph)) install.packages('geomorph')
+if (!require(Morpho)) install.packages('Morpho')
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
+This is a convenient way of using the a syntax similar to the Markdown langugage on Github, but be able generate R scripts that are both interactive and easy to modify. 
+
+### 1. Reading fiducial files from Slicer into R
+For this exercise we will read the contents of some files from our Gorilla Skull landmarks data, if you haven't done so, please download it using the Sample Data module of Slicer. 
+
+[fcsv](https://discourse.slicer.org/t/landmark-loading/8196/2?u=muratmaga) is a fairly simple comma-separate text file format. It was few extra lines at the top that can be skipped, and than a detailed header that tells you what each of the fields are. You should be able to open any fcsv file with a text editor or with excel. To read it into R, please first edit the variable **path.to.gorillas** so that it points out to the folder where the Slicer cache is located on your computer. 
+```{r}
+path.to.gorillas = 'C:/SlicerTemp/RemoteIO/Gorilla_Skull_LMs/'
+f = dir (patt='fcsv', path = path.to.gorillas)
+print (f)
+```
+If your correctly edited your **path.to.gorillas** variable, when you executed the code chunk you should have seen an output that displays 23 fcsv files with prefix USNM. If you didn't, you either didn't download the sample dataset, or you didn't set the path correctly. You won't be able to do the following steps, if you didn't set this variable correctly. 
+
+So, what this command did is to obtain the list of files that contain .fcsv extension in the folder and assign to a variable called f. Let's see the contents of first file in this folder. 
+
+```{r}
+print(f[1])
+readLines (paste (path.to.gorillas, f[1], sep = '/'))
+```
+
+print command above tells you the name of the first file in our f variable, and then readLines shows the contents of that files. First two lines of fcsv file contains Slicer specific information (version and coordinate system), and than the thirdline gives you what each of the fields in the following lines are. We know have everything ready to read the contents of this file into R. 
+
+```{r}
+landmark = read.csv (file = paste(path.to.gorillas, f[1], sep = '/'), skip = 2, header = TRUE)
+print (landmark)
+```
+
+landmark variable above is a data frame with the contents from the fcsv file. Go through the output above, and among the many columns, the fields we care are **X, Y, Z and possibly Label** (but not for this exercise). To get a sense the data, we can plot just the X, and Y coordinates to make 2D representation of the landmarks. To get a lateral view of the skull, we can plot just the Y and Z coordinates. 
+```{r}
+plot(x = landmark$y, y=landmark$z, pch = "+")
+```
+
+So far, we have read only one of the landmark files into R. We can go back up, create 26 different landmark variables (e.g., landmark1, landmark2, ...) so each of them contains the information from one of these fcsv files. While certainly possible, that would be too tedious. Instead we will create a 3D array that will contain all the coordinates. But first we have to manipulate our data frame so that it only contains what we care, the X,Y,Z coordinates of landmarks. To do that first note that X, Y, and Z coordinates are contained in the 2nd, 3rd, and 4th column of the data frame. So let's write a simple function that will strip everything except coodinates, and turn our data into a matrix 
+```{r}
+keep.coordinates.only = function (input) {
+  input = as.matrix(input [, 2:4])
+  return(input)
+}
+``` 
+
+What this little does is to read the contents of the variable passed to it (input), then retain only the columns from 2 to 4 (2:4), from all the rows of the data (,) and returns it as a 2D matrix. Let's see in action:
+
+```{r}
+keep.coordinates.only(landmark)
+```
+
+Now you should see a 2D array with 41 rows, and 3 columns that contains just the landmark coordinates. We got all necessary ingredients to convert our landmarks from 23 specimens into a 3D array. To do that first we should define our empty array:
+
+```{r}
+LMs = array (dim = c(41, 3, 23), dimnames = list(1:41, c("x", "y","z"), f))
+length(f)
+```
+
+Let's tease the syntax above a bit, because you will need to understand and modify accordingly for your needs. We set the array dimensions as c(41, 3, 23), because we have 41 landmarks, each of which has three components (x, y, and z) from 23 specimens. So if we want to display the X, Y coordinates of landmarks 1, 4, 19 from specimens 3, 5, and 17, we can give a command like this:
+```{r}
+print ( LMs [c(1, 4, 9), c("x", "y"), c(3, 5, 17)])
+```
+
+They are empty (or rather NA ), because we haven't actually began reading our files. Before moving onto the next snippet, which we will read, make sure you understand how you select certain elements from 2D and 3D array in R, because we will be doing that quite a bit. For that go the code snippet above, and change values (or add "z" dimension) until the output makes sense to you. 
+You can find more detailed examples [how array 'indexing' works in R here](https://data-flair.training/blogs/r-array/). If you are ready, execute. When you are ready, execute this snippet to read the contents of all 23 files into the LMs array. 
+```{r}
+for (i in 1:23) {
+    landmark = read.csv (file = paste(path.to.gorillas, f[i], sep = '/'), skip = 2, header = TRUE)
+    LMs [,,i] = keep.coordinates.only(landmark)
+}
+```
+
+You might notice that the code in line 83 is almost identical to the line 44, with the exception of replacing 1 with i. 
+Instead of reading the very first file in the f variable, we now 'loop' over it, each time reading into variable called landmark, and then stripping its contents, and finally assigning into the correct places in our 3D LMs array. 
+
+To convience yourselves, you can try the code below and compare the contents to the ones in file.  
+```{r}
+print ( LMs [c(1, 4, 9), c("x", "y", "z"), c(3, 5, 17)])
+```
+** Congratulations you read got all necessary things to do a GPA **
+
+### Generalized Procrustes Alignment in R/Geomorph
