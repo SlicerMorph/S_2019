@@ -68,15 +68,15 @@ Now you should see a 2D array with 41 rows, and 3 columns that contains just the
 
 ```{r}
 LMs = array (dim = c(41, 3, 23), dimnames = list(1:41, c("x", "y","z"), f))
-length(f)
 ```
 
-Let's tease the syntax above a bit, because you will need to understand and modify accordingly for your needs. We set the array dimensions as c(41, 3, 23), because we have 41 landmarks, each of which has three components (x, y, and z) from 23 specimens. So if we want to display the X, Y coordinates of landmarks 1, 4, 19 from specimens 3, 5, and 17, we can give a command like this:
+Let's tease apart the syntax above a bit, because you will need to understand and modify accordingly for your needs in future. We set the array dimensions as c(41, 3, 23), because we have 41 landmarks, each of which has three components (x, y, and z) from 23 specimens. So if we want to display the X, Y coordinates of landmarks 1, 4, 19 from specimens 3, 5, and 17, we can give a command like this:
 ```{r}
 print ( LMs [c(1, 4, 9), c("x", "y"), c(3, 5, 17)])
 ```
 
-They are empty (or rather NA ), because we haven't actually began reading our files. Before moving onto the next snippet, which we will read, make sure you understand how you select certain elements from 2D and 3D array in R, because we will be doing that quite a bit. For that go the code snippet above, and change values (or add "z" dimension) until the output makes sense to you. 
+They are empty (or rather NA ), because we haven't actually began reading our files. Before moving onto the next snippet, which we will read the landmarks, make sure you understand how you select certain elements from 2D and 3D array in R, as it will be important for plotting and array. To experiment, go the code snippet above, and change values (or add "z" dimension) until the output makes sense to you. 
+
 You can find more detailed examples [how array 'indexing' works in R here](https://data-flair.training/blogs/r-array/). If you are ready, execute. When you are ready, execute this snippet to read the contents of all 23 files into the LMs array. 
 ```{r}
 for (i in 1:23) {
@@ -92,6 +92,130 @@ To convience yourselves, you can try the code below and compare the contents to 
 ```{r}
 print ( LMs [c(1, 4, 9), c("x", "y", "z"), c(3, 5, 17)])
 ```
-** Congratulations you read got all necessary things to do a GPA **
+** Congratulations you  got all necessary things to do a GPA **
 
 ### Generalized Procrustes Alignment in R/Geomorph
+
+This is a very brief introduction to geomorph functionality. I strongly encourage you to enroll one of the many short courses specializing in geometric morphometrics using R and geomorph in particular. Here we will do a simple exercise of how to conduct GPA, do a PCA decomposition, compare the results of PCA from SlicerMorph to the geomorph versions, and then conduct a simple procrustes anova examples.
+
+Due to time constrains, we will not be going too much detail. Reading the package help (which contains all the functions name), and help on specific function. For example, click the **Packages** tab in the right-hand side of Rstudio, and then search for **geomorph**, and then click on the link. This will give a long list of all functions within the package. From the descriptions you can see that the function to do generalized procrustes analysis is called **gpagen**, and the function to the PCA is called **PlotTangentSpace**, and the function for procrustes anova, is **procD.lm**. You can click on any of them to read their specific usage, or at the R window, you can type:
+
+```{r}
+?gpagen
+```
+
+In R, you can also search of a function that you remember its partial name. For example:
+
+```{r}
+apropos("gpa")
+apropos("t.test")
+```
+for the first command you should see outputs called gpagen (from geomorph library) and ProcSym (Morpho library), and then whole bunch of t.test function. This is a good way to search for functions that you cannot recall their full names. 
+Please review the gpagen functionality, and then issue these command:
+```{r}
+gpa = gpagen(LMs)
+```
+
+You should see slider bar and 100% completed in few seconds. To see centroid sizes from this alignment type;
+```{r}
+gpa$Csize
+```
+
+or for mean shape.
+```{r}
+gpa$consensus
+```
+let's plot the mean shape as series of 2D plots:
+```{r}
+par(mfrow=c(1,3))
+plot(gpa$consensus[,c("X", "Y")], pch=20)
+plot(gpa$consensus[,c("X", "Z")], pch=20)
+plot(gpa$consensus[,c("Z", "Y")], pch=20)
+```
+
+Now, lets to a PCA. For that you need to read the documentation of plotTangentSpace() function. It tells you to provide GPA aligned coordinates from gpagen() function as your input. By default, it will output the first two PC as a bivariate plot
+```{r}
+pca = plotTangentSpace(gpa$coords)
+```
+If you want to see series of output, you can loop over variables like we did in the array example. Output of plotTangentSpace() is a [nested list](). Within this nested list $pcscores sublist contains the PC scores of the variables. Let's just read its partial contents:
+```{r}
+head(pca$pc.scores)
+```
+You should see the 22 PC scores from the first 5 specimen. To see the whole list you can go back and remove the head() function. 
+So if we want to loop over the first 5 PC and make a series of plots, we can do something like this:
+```{r}
+par(mfrow = c(3,4))
+for (i in 1:4) 
+  for (j in (i+1):5) plot(pca$pc.scores[, c(i,j)], pch=20)
+```
+At this point, you might be curious about how these PC scores from geomorph compares to the ones you obtained from SlicerMorph. To do that, we first need to read the SlicerMorph PC scores into R. Please locate your output folder from your SlicerMorph, session and confirm that there is PCscores.csv file. You need to change the edit the SM.output.path to the correct path in your computer:
+```{r}
+SM.output.path = "C:/SlicerTemp/RemoteIO/Gorilla_Skull_LMs/2019-08-30_23_46_15/"
+SM.pcs = read.csv(file = paste(SM.output.path, 'pcScores.csv', sep = "/"))
+head(SM.pcs)
+```
+Before we do any sort of analysis, we want to make sure files are sorted in the same way. The head() functions from both pca$pcscores, as well as SM.pcs suggest that they are indeed the same, but let's be sure. SM.pcs data frame contains a column called Sample_Name, where pca$pcscores from geomorph, displays as rownames. So to see them side by side:
+```{r}
+cbind(rownames(pca$pc.scores), as.character(SM.pcs$Sample_name))
+```
+
+They are indeed in the same order. Let's do couple diagnostic plots, and run some correlations
+```{r}
+print(cor(pca$pc.scores[,1], SM.pcs$PC.1))
+plot(pca$pc.scores[,1], SM.pcs$PC.1, xlab = "GeoMorph", ylab = "SlicerMorph", main = "PC comparisons", pch=20)
+```
+Correlations are practically one (within the precision of floating points). Go ahead do the other PCs by changing the variables above. What about centroid size? (HINT: For SlicerMorph centroid size is contained with the output file OutputData.csv)
+
+### Procrustes Anova.
+
+Recall our PC1 plot, which shows some group separation. Let's see if these groupings are related to the sexual dimorphism in gorilla. First we need to obtain the sex grouping variable for our samples. Please locate the sex.csv file under the Lab10 folder of our github repository, and enter the correct path to it below.
+
+
+```{r}
+sex = read.csv(file='c:/S_2019/Lab10/sex.csv')
+dim(sex)
+head(sex, 30)
+```
+You can see that this file contains much more specimen than the 23 we have data for. Fields also doesn't seem to be sorted. In such cases match() command of is a your friend to find, and order data. 
+```{r}
+match(SM.pcs$Sample_name, sex$Specimen)
+length(match(SM.pcs$Sample_name, sex$Specimen))
+```
+First match command shows the location of the samples we have in SlicerMorph in the large Sex dataset. Just to make sure we have all the samples, we ask it to tell us how many elements are found (length), and see that all 23 is present. So the remaining task is to reorgnize the sex data frame to contain only those 23 we care. To do that:
+```{r}
+sex = sex[match(SM.pcs$Sample_name, sex$Specimen),]
+cbind(sex, SM.pcs$Sample_name)
+```
+
+Now confirm that our sexd data frame contains only the  23 we care and ordered in exactly in the same way. Make sure that you go through the output above and note that some sex identification is questionable. (That's something we will explore if we have time). Let's create out grouping variable:
+```{r}
+groups = as.factor (substr(sex$Sex, 1, 1))
+print(groups)
+table(groups)
+```
+
+this command takes the first letter of the Sex field and turns into two level categorical variable. Let's see if the positions of the samples in Pc1 vs PC2 scatter plot corresponds to the groupings. We will make the same plot as above, but color code them. I will use the pca output from the geomorph, but could have done the same with the SlicerMorph pcs as well. 
+```{r}
+plot(pca$pc.scores[,1:2], pch=32)
+points(pca$pc.scores[ which(groups=="F"), 1:2], pch=20, col='red')
+points(pca$pc.scores[ which(groups=="M"), 1:2], pch=20, col='blue')
+```
+
+Looks like there is no separation of groups among PC1 but possibly some on PC2. However, PC1 and PC2 represents only a portion of all shape variable (Question: How much?). We can use the procruste anova to see if the mean shapes of males and females are different using all shape coordinates. We will use procD.lm, which has a lot of options. You really need to read it in detail, and work through the examples provided in the documentation. As documented in the help file the first task is to construct a special geomorph data frame that contains all variables we need (i.e., procrustes aligned coordinates, sex groups, and possibly the centroid size)
+```{r}
+gdf = geomorph.data.frame(coords=gpa$coords,  size = gpa$Csize, Sex = groups)
+attributes(gdf)
+```
+We confirm that we have all variables combined in one data frame and are ready to write our first statistical model that will input the Sex as independent variable and procrustes coordinates as dependent variables.
+```{r}
+model = procD.lm(coords~Sex, data=gdf)
+summary(model)
+```
+We have some week support that female and male gorillas may differ in their procrustes coordinate positions. Keep in mind that we have fairly low sample size and twice as many males than females. Let's see if accounting for skull size makes any difference:
+```{r}
+model2 = procD.lm(coords~size + Sex, data=gdf)
+summary(model2)
+```
+If we account for skull size differences, male and female gorillas do not appear to be significantly different from each other. 
+
+
