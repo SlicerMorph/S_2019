@@ -23,6 +23,8 @@ Download and install
 * [Rstudio desktop](https://www.rstudio.com/products/rstudio/download/)
 * [git](https://git-scm.com/downloads): you might already have git installed if you have macOS or Linux. [This](https://happygitwithr.com/install-git.html) is a very nice tutorial on how to install. 
 
+In case you run into trouble when using Git in Rstudio, try reset the git path in R: tools --> global options --> git --> path to git.exe
+
 ## Outline
 * Version control with Git and Github
 * Use Git in Rstudio
