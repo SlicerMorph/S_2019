@@ -30,10 +30,9 @@ Download and install
 * Create your own project on Github and a first push by Rstudio
 * Markdown: a way to style text
 
-## A first pull from SlicerMorph
-0. Open Rstudio
+## Exercise 1: A first pull from SlicerMorph using Rstudio Git UI
 
-1. Create a new version control project: File -> New Project -> Version Control
+1. In Rstudio, create a new version control project: File -> New Project -> Version Control
 
 <img src="images/newproject.png">
 
@@ -42,6 +41,12 @@ Download and install
 https://github.com/SlicerMorph/S_2019.git
 ```
 <img src="images/git.png">
+
+3. In the Git tab, click the *pull* button
+
+<img src="images/Rstudio1.png">
+
+Alternatively, if you are more comfortable with using command line, you could try the following,
 
 3. Open a new terminal: Tools -> Terminal -> New Terminal
 
@@ -52,12 +57,12 @@ https://github.com/SlicerMorph/S_2019.git
 git pull
 ```
 
-## Create your own project on Github and make it talk to Rstudio
+## Exercise 2: Create your own project on Github and make it talk to Rstudio
 1. Log in to your Github account and create a new repository. There is a small "+" sign right next to your profile picture
 
 <img src="images/plus.png">
 
-2. Fill in the information about your new repository. I usually select the the option *Initialize this repository with a README*. Once you are finished, click *Create repository*
+2. Fill in the information about your new repository. I usually select the option *Initialize this repository with a README*. Once you are finished, click *Create repository*
 
 <img src="images/newrepo.png">
 
@@ -65,34 +70,30 @@ git pull
 
 <img src="images/repopage.png">
 
-4. Creat a new version control project in Rstudio as before
+4. Pull from your new repository using Rstudio as in Exercise 1. 
 
-5. Clone your new Git repository
-
-6. Open a new terminal: Tools -> Terminal -> New Terminal
-
-7. Type in the terminal 
-```
-git pull
-```
-
-## Edit *Readme* and push it online
-1. Open the Readme file. You can do it with any text editor you like or directly edit in Rstudio. 
+## Exercise 3: Make a first change in your new repository
+1. Open the *Readme.md* file in Rstudio. 
 
 2. Type a descriptive paragraph about your project. Or just an emoji, like :pig:. 
 
-3. Save your Readme file and close it
+3. Save your *Readme.md* file and close it.
 
-4. Switch to the git Tab of Rstudio on the right handside
+4. In the git tab, Your *Readme.md* is now `modified`. Click on the checkbox in front of the file name. 
 
-5. See that the status of your Readme.MD is now shown as `modified`, click on the little checkbox to indicate git that you want to stage these changes. 
+<img src="images/Rstudio2.png">
 
-6. Click the commit button and enter a description your changes (for you to remember when looking at the commit history)
+5. Click the *commit* button and enter a description your changes (for you to remember when looking at the commit history)
 
-7. Now you are ready to `push` this to the remote repository on the github (you will have to enter your username and password)
+<img src="images/Rstudio3.png">
 
+6. Now you are ready to `push` this to the remote repository (you will have to enter your username and password)
 
-(You can also accomplish the same steps using the terminal window, or the git command line syntax)
+<img src="images/Rstudio4.png">
+
+7. Go to your github page and see you have made a change there too
+
+Alternatively, you can also accomplish the same steps using the terminal window, or the git command line syntax.
 
 4. Go to the terminal in Rstudio and type in the terminal
 ```
@@ -105,28 +106,13 @@ git commit -m "<edit_readme>"
 ```
 *-m* allows you to edit a customized commit message to describe what you have added/changed in the repository.
 
-6. Push your change to git
+6. Push your change to the remote repository
 ```
 git push
 ```
-7. Go to your github page and see you have made a change there too
 
-## Commit and Push the Rstudio UI
-1. Rstudio offers a nice UI for you to work with Git.
-
-<img src="images/Rstudio1.png">
-
-2. To commit the changes you have made, select the documents and click the **commit** button. 
-
-<img src="images/Rstudio2.png">
-
-3. Another window will pop-up and enter your commit messages.
-
-<img src="images/Rstudio3.png">
-
-4. Close the window and click the **push** button in the Rstudio Git UI. 
-
-<img src="images/Rstudio4.png">
+## Exercise 4: Markdown syntax 
+Read some examples from the [Markdown syntax](https://guides.github.com/features/mastering-markdown/). Pick three of your favorite features and use them in the *Readme.md* file. Push your change to the remote repository on Github. 
 
 ## What git is NOT?
 * A real-time collaboration tool
