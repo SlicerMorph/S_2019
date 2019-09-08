@@ -54,14 +54,14 @@ Development of SlicerMorph and the intense workshops are generously funded by Na
 5. [Lab 6: SlicerMorph #1 Statistical Shape ANalysis](https://github.com/SlicerMorph/S_2019/tree/master/Lab06_SlicerMorph_1)
 6. [Lab 7: SlicerMorph #1 Statistical Shape ANalysis - work on your own](https://github.com/SlicerMorph/S_2019/tree/master/Lab07_SlicerMorph_2)
 7. [Lab 8: Python in Slicer - Scripting tedious tasks](https://github.com/SlicerMorph/S_2019/tree/master/Lab08)
-8. [Lab 9: Auto3dGM - Establishing landmark-free shape correspondence](https://github.com/SlicerMorph/S_2019/tree/master/Lab09)
+8. [Lab 9: Auto3dGM - Establishing landmark-free shape correspondence](https://github.com/SlicerMorph/S_2019/tree/master/Lab09_Auto3Dgm)
 9. [Lab 10: Data Processing in R #1: import/export, geomorph package](https://github.com/SlicerMorph/S_2019/tree/master/Lab10)
 
 ### Links to Lecture Slides
 1. [Lecture 1: Introduction to 3D Imaging and Morphometrics (Maga)](https://github.com/SlicerMorph/S_2019/tree/master/Lecture01_Intro) 
 2. [Lecture 2: Applied Imaging Concepts (Rolfe)](https://github.com/SlicerMorph/S_2019/tree/master/Lecture02_Imaging_Basics)
 3. [Lecture 3: Statistical Shape Analysis #1: Concepts and Basics (Maga)](https://github.com/SlicerMorph/S_2019/tree/master/Lecture03_SSA_1)
-4. [Lecture 4: Statistical Shape Analysis #2: Semi Landmarks and Beyond (Rolfe)](https://github.com/SlicerMorph/S_2019/tree/master/Lecture04_SSA_2_SemiLMs)
+4. [Lecture 4: Statistical Shape Analysis #2: Semi Landmarks and Beyond (Rolfe)](https://github.com/SlicerMorph/S_2019/tree/master/Lecture04_SSA2_SemiLMs)
 5. [Lecture 5: Computational Anatomy (Maga)](https://github.com/SlicerMorph/S_2019/tree/master/Lecture05_Computational_Anatomy)
 5. [Lecture 6: Applications of SSA: Modeling Growth (Mercan)](https://github.com/SlicerMorph/S_2019/tree/master/Lecture06_modeling_growth)
 6. [Lecture 7: Auto3Dgm: Landmark-free Correspondence (Boyer)](https://github.com/SlicerMorph/S_2019/tree/master/Lecture07_Auto3Dgm)

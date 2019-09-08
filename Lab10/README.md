@@ -4,3 +4,4 @@
 * intro to geomorph/Morpho (Morpho::read.fcsv to import data from Slicer)
 * rerun the gorilla skulls sample dataset in geomorph and compare results.
 
+### Please open the Exercise.Rmd in Rstudio and follow the tutorial.
