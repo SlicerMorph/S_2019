@@ -3,7 +3,7 @@ This lab introduces simple Python scripts to preform custom image preprocessing 
 
 **Note 1: These examples assume you are starting in an empty scene. Please clear the scene before beginning each example.**
 
-**Note 2: Example 2 requires the Segment Editor Extra Effects Extension to be installed. Please install this from the extension manager and restart before beginning.**
+**Note 2: Example 2 requires the Segment Editor Extra Effects Extension to be installed. Please install this from the extension manager and restart the Slicer application before beginning.**
 
 ## Example 1: Aligning volumes using landmarks (Frankfort alignment plane).
 The Frankfurt plane defines the standard anatomical position of the human skull. The plane passes through landmarks placed at the left orbitale and the left and right tragus. Alignment with the Frankfurt plane is a standard preprocessing step when analyzing human face, brain, or head images.
@@ -23,7 +23,7 @@ The Frankfurt plane defines the standard anatomical position of the human skull.
 
 <img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab08/images/landmarks.png">
 
-5. Open the Python Interactor. Copy and paste the following script: 
+5. Open the Python Interactor. Copy and paste the script below. Lines starting with the # character are comments that give you information on how the code is operating. They are ignored by the Python Interactor.  
 
 ```
 import numpy
@@ -31,7 +31,7 @@ scene = slicer.mrmlScene
 F = getNodesByClass('vtkMRMLMarkupsFiducialNode')
 F = F[0]
 
-# Get the IDs of porions and zygomatico - orbitale  suture from the fiducial list by name
+# Get the fiducial IDs of porions and zygomatico - orbitale  suture from the fiducial list by name
 po1_id = -1; po2_id = -1; zyo_id = -1;
 
 for i in range(0, F.GetNumberOfFiducials()):
@@ -92,7 +92,6 @@ scene.AddNode(transform2)
 transform2.SetAndObserveMatrixTransformToParent(vTransform2.GetMatrix())
 transform.SetAndObserveTransformNodeID(transform2.GetID())
 
-
 # Get the coordinates again
 po1 = [0, 0, 0]
 po2 = [0, 0, 0]
@@ -133,15 +132,17 @@ slicer.vtkSlicerTransformLogic().hardenTransform(V)
 <img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab08/images/aligned.png">
 
 ## Example 2: Reading a segmentation and creating a histogram.
-In this section, you will use a segmentation to mask an image, calculate regional statistics and plot a histogram for each segment. In the first step, you will start from a Python script that will automatically generate a simple segmentation. In the second step, you will create your own segmentation and update the script.
+In this section, you will use a segmentation to mask an image, calculate regional statistics and plot a histogram for each segment. This example is based on a tutorial [provided by Andras Lasso](https://gist.github.com/lassoan/2f5071c562108dac8efe277c78f2620f). 
+
+In this example, a segmentation of the sample image will be used to identify sample patches of different tissue types in the scan. The "Tumor" label will be used to identify a patch of tumor tissue and the "Brain" label will identify patches of brain tissue unaffected by the tumor.  The "Background" label will be used to sample multiple tissue types. A comparison of the histogram plots of these segements allows analysis of the difference in voxel intensities between the "Tumor" and "Brain" regions, as well as how these compare to the overall distribution of values in the scan, as represented by the the "Background" regions.  
 
 1. Open Slicer and load the MRBrainTumor1 volume from the Sample Data module.
 
-2. Open the Segment Editor. Create three segments: Tumor, Reference, and Background. Use the spherical paint brush to place the segments on the brain volume.
+2. Open the Segment Editor. Create three segments: Tumor, Brain, and Background. Select the spherical paint brush to place the segments on the brain volume. The colors of the segments can be adjusted for better visibility by clicking on the color boxes in the Segment Editor table.
 
 <img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab08/images/segments.png">
 
-3. Use the following code snippet to iteratively mask the image with each segment and calculate the corresponding histogram:
+3. Use the following code snippet to iteratively mask the image with each segment and calculate the corresponding histogram. You should see an output plot of the histograms for each segment. This plot should show that the tumor tissue histogram has a peak at much higher voxel intensity values than the unaffected brain tissue or background samples.  
 ```
 import numpy as np
 masterVolumeNode = getNodesByClass('vtkMRMLScalarVolumeNode')
@@ -212,7 +213,8 @@ slicer.mrmlScene.RemoveNode(segmentEditorNode)
 
 4. Bonus: Generate or load your own segmentation. Reuse the code snippet from Step 3 to calculate segment histograms.
 
-5. Bonus: Get the maximim value from each segment by modifying the code from Step 3.
+5. Bonus: Get the maximim value from each segment by modifying the code from Step 3. You can try this on your own to test your understanding. The solution is posted below.
+
   ```
  import numpy as np
 masterVolumeNode = getNodesByClass('vtkMRMLScalarVolumeNode')
