@@ -67,4 +67,5 @@ Development of SlicerMorph and the intense workshops are generously funded by Na
 6. [Lecture 7: Auto3Dgm: Landmark-free Correspondence (Boyer)](https://github.com/SlicerMorph/S_2019/tree/master/Lecture07_Auto3Dgm)
 7. [Lecture 8: Applications of SSA: Phylogenetics (Shan)](https://github.com/SlicerMorph/S_2019/tree/master/Lecture08_SSA_Phylogenetics)
 8. [Lecture 9: Machine Learning Basics (Mercan)](https://github.com/SlicerMorph/S_2019/tree/master/Lecture09_MachineLearning)
+8. [Lecture 10: Biomechanics and 3D (Summers)](https://github.com/SlicerMorph/S_2019/tree/master/Lecture10_Biomechanics_and_3D)
 
