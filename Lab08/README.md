@@ -134,7 +134,7 @@ slicer.vtkSlicerTransformLogic().hardenTransform(V)
 ## Example 2: Reading a segmentation and creating a histogram.
 In this section, you will use a segmentation to mask an image, calculate regional statistics and plot a histogram for each segment. This example is based on a tutorial [provided by Andras Lasso](https://gist.github.com/lassoan/2f5071c562108dac8efe277c78f2620f). 
 
-In this example, a segmentation of the sample image will be used to identify sample patches of different tissue types in the scan. The "Tumor" label will be used to identify a patch of tumor tissue and the "Brain" label will identify patches of brain tissue unaffected by the tumor.  The "Background" label will be used to sample multiple tissue types. A comparison of the histogram plots of these segements allows analysis of the difference in voxel intensities between the "Tumor" and "Brain" regions, as well as how these compare to the overall distribution of values in the scan, as represented by the the "Background" regions.  
+In this example, sample patches from different tissue types in a brain scan will be identified using segment labels. The "Tumor" label will be used to identify a patch of tumor tissue and the "Brain" label will identify patches of brain tissue unaffected by the tumor.  The "Background" label will be used to sample multiple tissue types. Comparing the histogram plots will allow analysis of the differences in voxel intensities between the "Tumor" and "Brain" regions, as well as how these compare to the overall distribution of values in the scan represented by the the "Background" regions.  
 
 1. Open Slicer and load the MRBrainTumor1 volume from the Sample Data module.
 
@@ -142,7 +142,7 @@ In this example, a segmentation of the sample image will be used to identify sam
 
 <img src="https://github.com/SlicerMorph/S_2019/blob/master/Lab08/images/segments.png">
 
-3. Use the following code snippet to iteratively mask the image with each segment and calculate the corresponding histogram. You should see an output plot of the histograms for each segment. This plot should show that the tumor tissue histogram has a peak at much higher voxel intensity values than the unaffected brain tissue or background samples.  
+3. Use the following code snippet to iteratively mask the image with each segment and calculate the corresponding histogram. You should see an output plot of the histograms for each segment. This plot should show that the tumor tissue histogram has a peak at a higher voxel intensity value than the unaffected brain tissue and background samples.  
 ```
 import numpy as np
 masterVolumeNode = getNodesByClass('vtkMRMLScalarVolumeNode')
