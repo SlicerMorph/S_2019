@@ -283,6 +283,6 @@ If your data is suitable for surface model conversion and your analysis needs me
 
 
 ## Useful Links
-
+* [Discussion on how to segment thin structures](https://discourse.slicer.org/t/enhancing-orbital-walls-with-unsharp-mask-filtering/8440/)
 * [Segmentation Recipes](https://github.com/lassoan/SlicerSegmentationRecipes) from Andras Lasso, PerkLab
 * Bonus pointer to [discussion on Segmentation to Finite Element Analysis](https://discourse.slicer.org/t/use-segmentations-in-cad-or-fem-software/1626) 
