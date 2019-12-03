@@ -56,6 +56,7 @@ Two well-documented, and commonly supported image volume formats are:
   * [DicomBrowser Module](https://www.slicer.org/wiki/Documentation/Nightly/Modules/DICOM) or  
   * [DCM2NIIX](https://github.com/rordenlab/dcm2niix/releases) is a commandline tool for convert DICOMs 
   * [This is paper that reviews steps and challenges involved in converting DICOM to reearch format](https://www.ncbi.nlm.nih.gov/pubmed/?term=dicom+to+nifti+rorden)
+  * [There is also a DICOM specific FAQ to refer to in case of DICOM import issues.](https://www.slicer.org/wiki/Documentation/4.10/FAQ/DICOM)
 
 ## Downsamping Volumes via ResampleScalarVolume
 
