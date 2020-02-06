@@ -1,11 +1,11 @@
 # Lab 01 Tools for reproducible research
 ### Date: 08/26
-### Time: 2 hours
+### Time: 45 minutes
 
 ## Objectives 
 * become familiar with Rstudio’s Git and Github integration
-* be able to use Markdown syntax
 * be able to pull course materials from the workshop github page
+* be able to use simple Markdown syntax to highlight text (all tutorials in the workshop were written using Markdown syntax).
 
 ## Why use git?
 * [Git is useful to avoid this](http://phdcomics.com/comics/archive.php?comicid=1323)
@@ -19,7 +19,7 @@
 ## Prerequisite
 Download and install
 
-* [R 3.6.0](https://cran.r-project.org/)
+* [R 3.6.2](https://cran.r-project.org/)
 * [Rstudio desktop](https://www.rstudio.com/products/rstudio/download/)
 * [git](https://git-scm.com/downloads): you might already have git installed if you have macOS or Linux. [This](https://happygitwithr.com/install-git.html) is a very nice tutorial on how to install. 
 
